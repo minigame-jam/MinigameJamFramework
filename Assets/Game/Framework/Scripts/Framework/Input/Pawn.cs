@@ -1,11 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Game.MinigameFramework.Scripts.Framework.Input {
     public abstract class Pawn : MonoBehaviour {
         /// Do not set this, it will be set by PawnBindingManager
-        [HideInInspector] public int playerIndex = -1;
+        [HideInInspector] public int playerIndex {
+            get => _playerIndex;
+            set {
+                _playerIndex = value;
+                onPlayerIndexChanged.Invoke(value);
+            }
+        }
+        private int _playerIndex = -1;
+        [HideInInspector] public UnityEvent<int> onPlayerIndexChanged = new();
 
         /// <summary>
         ///     When bound to a PlayerInput by PawnBindingManager, this method will be called when the player presses any button.
