@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -190,7 +190,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 4.41
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -335,7 +335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: -1
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &480543063
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: -1
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &612797845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -649,7 +653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: -1
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &898506271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1059,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: -1
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1530569957
 GameObject:
   m_ObjectHideFlags: 0
