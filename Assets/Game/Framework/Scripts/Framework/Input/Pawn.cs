@@ -11,12 +11,9 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
             set {
                 _playerIndex = value;
                 onPlayerIndexChanged.Invoke(value);
-                print($"Player index set to {value} for pawn {name}");
             }
         }
-
-        [SerializeProperty("playerIndex")]
-        [SerializeField] private int _playerIndex = -1;
+        private int _playerIndex = -1;
         [HideInInspector] public UnityEvent<int> onPlayerIndexChanged = new();
 
         /// <summary>
