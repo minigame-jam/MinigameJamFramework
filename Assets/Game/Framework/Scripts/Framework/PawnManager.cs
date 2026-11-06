@@ -16,12 +16,12 @@ namespace Game.Examples {
         
         private void Start() {
             PlayerManager.SetMinigameActionMap();
-            BindPawns();
+            BindConnectedPawns();
             PlayerManager.onPlayerConnected.AddListener(BindPawn);
             PlayerManager.onPlayerDisconnected.AddListener(OnPlayerLeft);
         }
 
-        private void BindPawns() {
+        private void BindConnectedPawns() {
             foreach(Player player in PlayerManager.players) {
                 int index = player.playerIndex;
                 if(index < pawns.Count) {
@@ -43,7 +43,8 @@ namespace Game.Examples {
         }
         
         private void OnDisable() {
-            PlayerJoinManager.onAllPlayersJoined.RemoveListener(BindPawns); // stop listening when this component is disabled
+            PlayerManager.onPlayerConnected.RemoveListener(BindPawn); // stop listening when this component is disabled
+            PlayerManager.onPlayerDisconnected.RemoveListener(OnPlayerLeft); // stop listening when this component is disabled
         }
 
         private void OnPlayerLeft(int playerIndex) {
