@@ -19,7 +19,6 @@ public class MenuScript : MonoBehaviour {
     public Image packageIconPrefab;
     public SceneField packSelectScene;
 
-    [SerializeField] PromptWindow promptWindowPrefab;
     private PromptWindow _promptWindow;
 
     // Enforce Player Count replaced by context from MinigamePacks listed under MinigameManager
@@ -62,9 +61,16 @@ public class MenuScript : MonoBehaviour {
 
     public void CreatePromptWindow() {
         if(_promptWindow!=null)return;
-        _promptWindow = Instantiate(promptWindowPrefab);
+        _promptWindow = Instantiate(PromptWindow.GetPrefab());
         _promptWindow.SetText("START GAME?");
         _promptWindow.onConfirm.AddListener(NextMinigame);
+        _promptWindow.onCancel.AddListener(OnAllPlayersConnected);
+    }
+    public void CreateExitWindow() {
+        if(_promptWindow!=null)return;
+        _promptWindow = Instantiate(PromptWindow.GetPrefab());
+        _promptWindow.SetText("QUIT GAME?");
+        _promptWindow.onConfirm.AddListener(Application.Quit);
         _promptWindow.onCancel.AddListener(OnAllPlayersConnected);
     }
 

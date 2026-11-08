@@ -15,6 +15,14 @@ namespace Game.MinigameFramework.Menus.PromptWindow {
         public UnityEvent onConfirm = new();
         public UnityEvent onCancel = new();
 
+        /// <summary>
+        /// Finds the PromptWindow prefab in the Resources folder and returns it. This is used to instantiate a new PromptWindow in the scene.
+        /// </summary>
+        /// <returns>PromptWindow prefab located in Resources folder.</returns>
+        public static PromptWindow GetPrefab() {
+            return Resources.Load<PromptWindow>("PromptWindow");
+        }
+
         private void Start() {
             PlayerManager.SetMenuActionMap();
             SetDefaultSelectedButton();   
