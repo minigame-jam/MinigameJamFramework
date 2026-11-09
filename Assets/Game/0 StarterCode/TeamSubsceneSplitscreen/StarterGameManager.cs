@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Starter.TeamSubsceneSplitscreen {
     /// <summary>
-    /// Manages minigame state across separate individual subscenes for each player.
+    /// Manages minigame state across separate individual subscenes.
     /// Communicates with each StarterSubmanager.
     /// </summary>
     public class StarterGameManager : MonoBehaviour {

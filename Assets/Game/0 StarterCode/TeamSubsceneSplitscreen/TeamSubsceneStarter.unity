@@ -733,11 +733,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a536f54d49ce84886c6139425b185b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: 'This script sets up four individual splitscreen subscenes, one for each player.
+  comment: 'This script sets up two splitscreen subscenes that support multiple players. Ideal for splitscreen 2v2 or 3v1 minigames.
 
     To change the shape of the cameras, you can edit the width/height and position of the elements in Camera Rect.
 
-    To change the number of subscenes or the number of players per subscene, you can create a custom variation of this script. Do not edit this script itself.'
+    To change the behavior of this subscene system, you can create a custom variation of this script. Do not edit this script itself.'
 --- !u!114 &1609695536
 MonoBehaviour:
   m_ObjectHideFlags: 0
