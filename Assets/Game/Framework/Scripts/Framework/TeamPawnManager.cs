@@ -65,16 +65,16 @@ namespace Game.Examples {
 
             List<int> shuffledIndexList = new();
             for(int i = 0; i < playerCount; i++) shuffledIndexList.Add(i);
-            shuffledIndexList.OrderBy(x => UnityEngine.Random.value).ToList();
+            shuffledIndexList.Shuffle();
 
             int a = 0, b = 0;
 
             AssignTeamToPlayers(shuffledIndexList, 0, 0, out a, out b);
 
             if(playerCount<4) {
-                shuffledIndexList = new();
+                shuffledIndexList.Clear();
                 for (int i = playerCount; i < 4; i++) shuffledIndexList.Add(i);
-                shuffledIndexList.OrderBy(x => UnityEngine.Random.value).ToList();
+                shuffledIndexList.Shuffle();
                 AssignTeamToPlayers(shuffledIndexList, a, b, out _, out _, offset: playerCount);
             }
         }
