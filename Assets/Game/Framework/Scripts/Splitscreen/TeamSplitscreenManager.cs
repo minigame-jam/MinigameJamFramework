@@ -35,6 +35,8 @@ namespace Examples.Splitscreen {
 
         private void Start() {
             PlayerManager.SetMinigameActionMap(); 
+
+            // TODO: Support players being associated with subscene pawns randomly.
             
             // Instantiate subscenes for already connected players
             for (int i = 0; i < PlayerManager.players.Count; i++) {
