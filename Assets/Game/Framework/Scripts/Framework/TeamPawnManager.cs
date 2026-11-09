@@ -18,7 +18,7 @@ namespace Game.Examples {
         [Header("Debug")]
         [Tooltip("When debug mode is enabled, team assignments are not randomized.")]
         [SerializeField] bool debugMode = false;
-        [Tooltip("When enabled, connected players are dsitributed between teams.")]
+        [Tooltip("When enabled, connected players are disitributed evenly between teams. When disabled, Team A is filled completely before Team B.")]
         [SerializeField] bool fillAlternating = true;
 
 
