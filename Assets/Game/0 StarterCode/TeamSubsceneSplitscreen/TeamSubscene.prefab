@@ -194,9 +194,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.5
+    y: 0
     width: 0.5
-    height: 0.5
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101323024812110861}
-  - component: {fileID: 4640466907586981073}
+  - component: {fileID: 2062944228135518203}
   - component: {fileID: 8688827574064425585}
   m_Layer: 0
   m_Name: TeamSubscene
@@ -257,7 +257,7 @@ Transform:
   - {fileID: 4496013117406400260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4640466907586981073
+--- !u!114 &2062944228135518203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,10 +266,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3432152660710907280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c332d4b8329041a41bffb6659968daa0, type: 3}
+  m_Script: {fileID: 11500000, guid: bd699b2fba2357243822927b39207977, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Examples.Splitscreen.TeamSubsceneManager
   cam: {fileID: 549679116722195895}
+  maxPlayers: 2
 --- !u!114 &8688827574064425585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b498baf56af1ea4384d9134e77aa31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: -1
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!23 &6769409805584497153
 MeshRenderer:
   m_ObjectHideFlags: 0

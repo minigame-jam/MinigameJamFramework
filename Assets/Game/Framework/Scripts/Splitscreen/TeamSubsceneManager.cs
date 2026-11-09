@@ -14,14 +14,11 @@ namespace Examples.Splitscreen {
         public int index { get; private set; }
         
         private TeamSplitscreenManager _superManager;
-        public int maxPlayers { get; private set; }
+
+        public int maxPlayers = 2;
 
         private Dictionary<int, Pawn> _pawnBindings = new();
         private List<Pawn> _unboundPawns = new();
-
-        private void Reset() {
-            maxPlayers = 2;
-        }
 
         private void Awake() {
             _superManager = TeamSplitscreenManager.instance;
