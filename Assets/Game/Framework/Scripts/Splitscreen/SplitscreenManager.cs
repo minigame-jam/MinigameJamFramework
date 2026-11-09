@@ -32,7 +32,7 @@ namespace Examples.Splitscreen {
         }
 
         private void Start() {
-            PlayerManager.SetMinigameActionMap();
+            PlayerManager.SetMinigameActionMap(); 
             
             // Instantiate subscenes for already connected players
             for (int i = 0; i < PlayerManager.players.Count; i++) {
