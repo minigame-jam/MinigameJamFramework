@@ -108,7 +108,7 @@ namespace Frog {
             rigidBody.isKinematic = false;
             transform.localPosition = Vector3.zero;
             moveInput = Random.insideUnitCircle.normalized;
-            rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed, jumpHeight, moveInput.y * moveSpeed);
+            rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed * 1.5f, jumpHeight, moveInput.y * moveSpeed * 1.5f);
             transform.position = new Vector3(transform.parent.position.x, 1.5f, transform.parent.position.z);
             transform.SetParent(null);
             ChangeCurrentState(FrogMovement.FrogState.None);
