@@ -9,6 +9,9 @@ namespace Frog {
     public class FrogMovement : Pawn {
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private AudioClip sfx_hop_1;
+        [SerializeField] private AudioClip sfx_hop_2;
+        [SerializeField] private AudioClip sfx_hop_3;
+        [SerializeField] private AudioClip sfx_hop_4;
 
         // How high the frogs jump
         public float jumpHeight;
@@ -62,8 +65,21 @@ namespace Frog {
 
         // Plays sound effects
         public void playSFX(string sfxTrigger) {
+            int rngSFX = 1;
             if (sfxTrigger == "jump") {
-                sfxSource.PlayOneShot(sfx_hop_1);
+                rngSFX = Random.Range(1,5);
+                if (rngSFX == 1) {
+                    sfxSource.PlayOneShot(sfx_hop_1);
+                }
+                else if (rngSFX == 2) {
+                    sfxSource.PlayOneShot(sfx_hop_2);
+                }
+                else if (rngSFX == 3) {
+                    sfxSource.PlayOneShot(sfx_hop_3);
+                }
+                else if (rngSFX == 4) {
+                    sfxSource.PlayOneShot(sfx_hop_4);
+                }
             }
         }
 

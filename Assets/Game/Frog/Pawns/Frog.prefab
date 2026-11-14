@@ -111,6 +111,9 @@ MonoBehaviour:
       m_Calls: []
   sfxSource: {fileID: -358048959036987042}
   sfx_hop_1: {fileID: 8300000, guid: 17d8d88bc6b134e64a19b14dadd9d597, type: 3}
+  sfx_hop_2: {fileID: 8300000, guid: fb36fc0f62c6c4b1ea6df956f6fa22de, type: 3}
+  sfx_hop_3: {fileID: 8300000, guid: 4fb48aea6110241db93f85e557417d2b, type: 3}
+  sfx_hop_4: {fileID: 8300000, guid: 61295b92bc2e24e6c89ccdba5582b0e0, type: 3}
   jumpHeight: 4
   moveSpeed: 5
 --- !u!54 &4278160091502408227
