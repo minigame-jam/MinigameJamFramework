@@ -107,6 +107,8 @@ namespace Frog {
             transform.GetComponentInParent<WitchMovement>().SetHasFrog();
             rigidBody.isKinematic = false;
             transform.localPosition = Vector3.zero;
+            moveInput = Random.insideUnitCircle.normalized;
+            rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed, jumpHeight, moveInput.y * moveSpeed);
             transform.position = new Vector3(transform.parent.position.x, 1.5f, transform.parent.position.z);
             transform.SetParent(null);
             ChangeCurrentState(FrogMovement.FrogState.None);
