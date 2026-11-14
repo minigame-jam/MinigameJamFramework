@@ -30,15 +30,26 @@ namespace Frog {
         public bool justJumped = false;
         public int frogNumber;
 
+        [SerializeField] private int escapeClickAmount;
+        private int currentClickAmount = 0;
+
+
         // The direction of the player's movement input
         Vector2 moveInput = Vector2.zero;
 
         // Reference to the Rigidbody component of the frog
         Rigidbody rigidBody;
+        SpriteRenderer spriteRenderer;
+
+        [SerializeField] private Sprite[] pickupFrogSprites;
 
         void Start() {
             // Sets the Rigidbody reference
             rigidBody = GetComponent<Rigidbody>();
+
+            if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null) {
+                spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            }
         }
 
         void Update() {
@@ -99,6 +110,7 @@ namespace Frog {
             rigidBody.isKinematic = true;
             transform.SetParent(witch.transform);
             transform.localPosition = new Vector3(0, 1.5f, 0);
+            spriteRenderer.sprite = pickupFrogSprites[0];
             ChangeCurrentState(FrogMovement.FrogState.Grabbed);
 
         }

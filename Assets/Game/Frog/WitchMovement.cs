@@ -16,7 +16,8 @@ namespace Witch {
         Vector2 moveInput = Vector2.zero;
         Rigidbody rigidBody;
         Vector3 frogPickupSize = new Vector3(3f, 2f, 3f);
-        Vector3 cauldronDetectSize = new Vector3(1f, 1f, 1f);
+        Vector3 cauldronDetectSize = new Vector3(1.5f, 1.5f, 1.5f);
+
 
         void Start() {
             rigidBody = GetComponent<Rigidbody>();
@@ -106,6 +107,9 @@ namespace Witch {
         void OnDrawGizmos() {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, frogPickupSize);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position, cauldronDetectSize);
         }
 
 
