@@ -108,7 +108,7 @@ namespace Frog {
             rigidBody.isKinematic = true;
             transform.SetParent(witch.transform);
             transform.localPosition = new Vector3(0, 1.5f, 0);
-            spriteRenderer.sprite = pickupFrogSprites[0];
+            if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null)  spriteRenderer.sprite = pickupFrogSprites[0];
             ChangeCurrentState(FrogMovement.FrogState.Grabbed);
 
         }

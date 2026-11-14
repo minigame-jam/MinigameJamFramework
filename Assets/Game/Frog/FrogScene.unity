@@ -1138,6 +1138,26 @@ PrefabInstance:
       propertyPath: pickupFrogSprites
       value: 
       objectReference: {fileID: -7404789004354701942, guid: 31e2060023ec845819ed7c2f21f05b9a, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: pickupFrogSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: 'pickupFrogSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4383460123791238662, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: 'pickupFrogSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1926735227, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: 'pickupFrogSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -1808096300, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: 'pickupFrogSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -266924095, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
     - target: {fileID: 7527080343892273912, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1146,7 +1166,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 1709111989}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
