@@ -24,7 +24,6 @@ namespace Frog {
             moveInput = frog.GetMoveInput();
             Vector3 currentRotation = transform.eulerAngles;
             currentRotation.y = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
-            Debug.Log(currentRotation.y);
             transform.eulerAngles = currentRotation;
         }
 
@@ -38,14 +37,33 @@ namespace Frog {
             transform.position = (frog.gameObject.transform.position + new Vector3(moveInput.x, 0, moveInput.y) * (distFromFrog + length));
 
             if (length > maxLength) {
-                length = 0;
-                gameObject.SetActive(false);
+                Stop();
             }
 
         }
 
         void OnTriggerEnter(Collider collider) {
-            // Put code for hitting something here
+            if (collider.GetComponent<Frog.FrogMovement>() != null) {
+                Frog.FrogMovement otherFrog = collider.GetComponent<FrogMovement>();
+
+                if (otherFrog.frogNumber != frog.frogNumber){
+                    // Make otherFrog jump towards frog
+                    Stop();
+                }
+            }
+            else if (collider.GetComponent<Frog.FlyMovement>() != null) {
+                // eat fly
+                Stop();
+            }
+            //else if (collider.GetComponent<Frog.GrapplePoint>() != null) {
+            //    // jump towards grapple
+            //    Stop();
+            //}
+        }
+
+        void Stop() {
+            length = 0;
+            gameObject.SetActive(false);
         }
 
     }

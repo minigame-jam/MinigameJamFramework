@@ -122,6 +122,8 @@ MonoBehaviour:
   justJumped: 0
   frogNumber: 0
   tongue: {fileID: 1363342410226845426}
+  escapeClickAmount: 0
+  pickupFrogSprites: []
 --- !u!54 &4278160091502408227
 Rigidbody:
   m_ObjectHideFlags: 0
