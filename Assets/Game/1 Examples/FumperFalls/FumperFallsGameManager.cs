@@ -6,7 +6,7 @@ using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
 using TMPro;
 using UnityEngine;
 
-namespace Examples.FumperFalls {
+namespace GnomeGame {
     public class FumperFallsGameManager : MonoBehaviour {
         // TIME VARIABLES
         [Header("Time")]
