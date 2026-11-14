@@ -37,6 +37,8 @@ namespace Frog {
                 // Jump in the input direction
                 if (IsGrounded()) {
                     rigidBody.linearVelocity = new Vector3(moveInput.x*moveSpeed, jumpHeight, moveInput.y*moveSpeed);
+                    // Jump further up if not moving
+                    if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
                 }
             }
         }
@@ -50,7 +52,7 @@ namespace Frog {
 
         // Checks to see if the player is no longer moving downwards (aka is on the ground)
         bool IsGrounded() {
-            return rigidBody.linearVelocity.y >= 0;
+            return rigidBody.linearVelocity.y == 0;
         }
     }
 }
