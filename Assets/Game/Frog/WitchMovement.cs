@@ -8,7 +8,9 @@ using UnityEngine.InputSystem;
 namespace Witch {
 
     public class WitchMovement : Pawn {
-        
+
+
+        bool hasFrog = false;
         public float moveSpeed;
         Vector2 moveInput = Vector2.zero;
         Rigidbody rigidBody;
@@ -24,6 +26,8 @@ namespace Witch {
             }
 
             if (context.action.name == PawnAction.ButtonA) {
+
+                if (hasFrog) return;
                 Collider[] collisions = Physics.OverlapBox(transform.position, boxSize / 2f, transform.rotation);
 
                 List<FrogMovement> frogs = new List<FrogMovement>();
@@ -34,11 +38,14 @@ namespace Witch {
                     }
                 }
 
+                FrogMovement selectedFrog = null;
+
                 switch (frogs.Count) {
                     case 0:
                         break;
 
                     case 1:
+                        selectedFrog = frogs[0];
                         Debug.Log(frogs[0].frogNumber);
                         break;
 
@@ -57,17 +64,26 @@ namespace Witch {
                             }
                         }
 
-
+                        selectedFrog = closestFrog;
                         Debug.Log(closestFrog.frogNumber);
 
-
                         break;
+                }
+
+                if (selectedFrog != null) {
+                    GrabFrog(selectedFrog);
                 }
             }
         }
 
-        private void GrabFrog() {
+        private void GrabFrog(FrogMovement frog) {
+            frog.FrogGrabbed(transform.GetComponent<WitchMovement>());
+            hasFrog = true;
 
+        }
+
+        public void SetHasFrog(bool hasFrog = false) {
+            this.hasFrog = hasFrog;
         }
 
         private void Update() {

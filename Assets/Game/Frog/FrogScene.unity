@@ -289,6 +289,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: frogState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: frogNumber
       value: 2
       objectReference: {fileID: 0}
@@ -638,13 +642,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898506271}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 5, z: -8}
+  m_LocalRotation: {x: 0.43260735, y: -0, z: -0, w: 0.9015825}
+  m_LocalPosition: {x: 0, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 51.266, y: 0, z: 0}
 --- !u!1 &930499748
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +805,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: frogState
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
@@ -987,6 +995,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: frogState
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
