@@ -62,16 +62,6 @@ namespace Frog {
 
         // Handles input pressing
         protected override void OnActionPressed(InputAction.CallbackContext context) {
-            if (context.action.name == PawnAction.ButtonA) {
-                // Jump in the input direction
-                if (IsGrounded()) {
-                    rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed, jumpHeight, moveInput.y * moveSpeed);
-                    // Jump further up if not moving
-                    if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
-                    playSFX("jump");
-                    justJumped = true;
-                }
-            }
             if (frogState == FrogState.Grabbed) {
                 if(context.action.name == PawnAction.ButtonA) {
                     FrogReleased();
@@ -89,6 +79,8 @@ namespace Frog {
                         rigidBody.linearVelocity = new Vector3(moveInput.x*moveSpeed, jumpHeight, moveInput.y*moveSpeed);
                         // Jump further up if not moving
                         if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
+                        playSFX("jump");
+                        justJumped = true;
                     }
                 }
             }
