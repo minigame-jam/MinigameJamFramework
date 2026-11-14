@@ -114,8 +114,10 @@ MonoBehaviour:
   sfx_hop_2: {fileID: 8300000, guid: fb36fc0f62c6c4b1ea6df956f6fa22de, type: 3}
   sfx_hop_3: {fileID: 8300000, guid: 4fb48aea6110241db93f85e557417d2b, type: 3}
   sfx_hop_4: {fileID: 8300000, guid: 61295b92bc2e24e6c89ccdba5582b0e0, type: 3}
+  sfx_land_1: {fileID: 8300000, guid: 49e581496a74b4c63a8d68a3d69be089, type: 3}
   jumpHeight: 4
   moveSpeed: 5
+  justJumped: 0
 --- !u!54 &4278160091502408227
 Rigidbody:
   m_ObjectHideFlags: 0

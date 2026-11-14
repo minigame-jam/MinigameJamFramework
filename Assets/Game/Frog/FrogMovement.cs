@@ -12,11 +12,14 @@ namespace Frog {
         [SerializeField] private AudioClip sfx_hop_2;
         [SerializeField] private AudioClip sfx_hop_3;
         [SerializeField] private AudioClip sfx_hop_4;
+        [SerializeField] private AudioClip sfx_land_1;
 
         // How high the frogs jump
         public float jumpHeight;
         // The forward force a frog gets when jumping directionally
         public float moveSpeed;
+
+        public bool justJumped = false;
 
         // The direction of the player's movement input
         Vector2 moveInput = Vector2.zero;
@@ -31,6 +34,10 @@ namespace Frog {
 
         void Update() {
             // Update Code
+            if (justJumped && IsGrounded()) {
+                justJumped = false;
+                playSFX("land");
+            }
         }
 
         // Handles input pressing
@@ -47,6 +54,7 @@ namespace Frog {
                     // Jump further up if not moving
                     if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
                     playSFX("jump");
+                    justJumped = true;
                 }
             }
         }
@@ -80,6 +88,9 @@ namespace Frog {
                 else if (rngSFX == 4) {
                     sfxSource.PlayOneShot(sfx_hop_4);
                 }
+            }
+            else if (sfxTrigger == "land") {
+                sfxSource.PlayOneShot(sfx_land_1);
             }
         }
 
