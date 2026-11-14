@@ -20,6 +20,7 @@ namespace Frog {
         public float moveSpeed;
 
         public bool justJumped = false;
+        public int frogNumber;
 
         // The direction of the player's movement input
         Vector2 moveInput = Vector2.zero;
