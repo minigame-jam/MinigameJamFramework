@@ -110,6 +110,7 @@ MonoBehaviour:
       m_Calls: []
   jumpHeight: 4
   moveSpeed: 5
+  frogNumber: 0
 --- !u!54 &4278160091502408227
 Rigidbody:
   m_ObjectHideFlags: 0

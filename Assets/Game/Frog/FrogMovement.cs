@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 
 namespace Frog {
     public class FrogMovement : Pawn {
+
         // How high the frogs jump
         public float jumpHeight;
         // The forward force a frog gets when jumping directionally
         public float moveSpeed;
+
+        public int frogNumber;
 
         // The direction of the player's movement input
         Vector2 moveInput = Vector2.zero;
