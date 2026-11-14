@@ -240,6 +240,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4332397981282028344, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
       value: Frog (P2)
@@ -254,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 1.387
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -403,8 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawns:
-  - {fileID: 1850455340}
   - {fileID: 1397598279}
+  - {fileID: 1850455340}
   - {fileID: 214426336}
   - {fileID: 975632536}
 --- !u!4 &736634831

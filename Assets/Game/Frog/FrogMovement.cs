@@ -29,6 +29,7 @@ namespace Frog {
 
         public bool justJumped = false;
         public int frogNumber;
+        public Frog.Tongue tongue;
 
         [SerializeField] private int escapeClickAmount;
         private int currentClickAmount = 0;
@@ -76,12 +77,17 @@ namespace Frog {
                 if (context.action.name == PawnAction.ButtonA) {
                     // Jump in the input direction
                     if (IsGrounded()) {
-                        rigidBody.linearVelocity = new Vector3(moveInput.x*moveSpeed, jumpHeight, moveInput.y*moveSpeed);
+                        rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed, jumpHeight, moveInput.y * moveSpeed);
                         // Jump further up if not moving
                         if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
                         playSFX("jump");
                         justJumped = true;
                     }
+
+                }
+                // Shoot tongue if b is pressed
+                if (context.action.name == PawnAction.ButtonB && moveInput != Vector2.zero) {
+                    tongue.gameObject.SetActive(true);
                 }
             }
         }
@@ -146,5 +152,8 @@ namespace Frog {
             }
         }
 
+        public Vector2 GetMoveInput() {
+            return moveInput;
+        }
     }
 }
