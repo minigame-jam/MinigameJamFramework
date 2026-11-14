@@ -5,7 +5,11 @@ using Game.MinigameFramework.Scripts.Framework.Input;
 using UnityEngine.InputSystem;
 
 namespace Frog {
+
     public class FrogMovement : Pawn {
+        [SerializeField] private AudioSource sfxSource;
+        [SerializeField] private AudioClip sfx_hop_1;
+
         // How high the frogs jump
         public float jumpHeight;
         // The forward force a frog gets when jumping directionally
@@ -39,6 +43,7 @@ namespace Frog {
                     rigidBody.linearVelocity = new Vector3(moveInput.x*moveSpeed, jumpHeight, moveInput.y*moveSpeed);
                     // Jump further up if not moving
                     if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
+                    playSFX("jump");
                 }
             }
         }
@@ -54,5 +59,13 @@ namespace Frog {
         bool IsGrounded() {
             return rigidBody.linearVelocity.y == 0;
         }
+
+        // Plays sound effects
+        public void playSFX(string sfxTrigger) {
+            if (sfxTrigger == "jump") {
+                sfxSource.PlayOneShot(sfx_hop_1);
+            }
+        }
+
     }
 }
