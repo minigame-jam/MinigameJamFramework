@@ -84,11 +84,7 @@ namespace Frog {
                 if (context.action.name == PawnAction.ButtonA) {
                     // Jump in the input direction
                     if (IsGrounded()) {
-                        rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed, jumpHeight, moveInput.y * moveSpeed);
-                        // Jump further up if not moving
-                        if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
-                        playSFX("jump");
-                        justJumped = true;
+                        Jump(moveInput);
                     }
 
                 }
@@ -173,6 +169,15 @@ namespace Frog {
 
         public Vector2 GetMoveInput() {
             return moveInput;
+        }
+
+        public void Jump(Vector2 direction) {
+            rigidBody.linearVelocity = new Vector3(direction.x * moveSpeed, jumpHeight, direction.y * moveSpeed);
+            // Jump further up if not moving
+            if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;
+            playSFX("jump");
+            justJumped = true;
+
         }
     }
 }
