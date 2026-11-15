@@ -88,7 +88,7 @@ namespace Game.Examples {
 
         private void BindPawn(int index) {
             Pawn pawn = GetPawn(index);
-            if (pawn.playerIndex>=-1) {
+            if (pawn.playerIndex>-1) {
                 Debug.LogWarning($"TeamPawnManager: Pawn ({pawn.name}) is already bound. Player index {index} was not bound.");
                 return;
             }
