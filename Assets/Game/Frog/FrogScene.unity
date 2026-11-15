@@ -1135,6 +1135,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: escapeClickAmount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: pickupFrogSprites
       value: 
       objectReference: {fileID: -7404789004354701942, guid: 31e2060023ec845819ed7c2f21f05b9a, type: 3}
@@ -1637,6 +1641,14 @@ PrefabInstance:
     - target: {fileID: 5334330320976590393, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611911262825938307, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
+      propertyPath: maxSpeed
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611911262825938307, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
+      propertyPath: acceleration
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
