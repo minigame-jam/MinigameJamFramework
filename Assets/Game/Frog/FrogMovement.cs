@@ -21,6 +21,7 @@ namespace Frog {
         }
 
         public FrogState frogState;
+        public static bool isPawnInputEnabled;
 
         // How high the frogs jump
         public float jumpHeight;
@@ -67,32 +68,33 @@ namespace Frog {
 
         // Handles input pressing
         protected override void OnActionPressed(InputAction.CallbackContext context) {
-            if (frogState == FrogState.Grabbed) {
-                if(context.action.name == PawnAction.ButtonA) {
-                    currentClickAmount--;
-                    FrogStruggle();
+            if (isPawnInputEnabled){
+                if (frogState == FrogState.Grabbed) {
+                    if (context.action.name == PawnAction.ButtonA) {
+                        currentClickAmount--;
+                        FrogStruggle();
 
-                    if (currentClickAmount <= 0) {
-                        FrogReleased();
+                        if (currentClickAmount <= 0) {
+                            FrogReleased();
+                        }
                     }
-                }
-            } 
-            else {
-                // Stores the player's move input
-                if (context.action.name == PawnAction.Move) {
-                    moveInput = context.ReadValue<Vector2>();
-                }
-
-                if (context.action.name == PawnAction.ButtonA) {
-                    // Jump in the input direction
-                    if (IsGrounded()) {
-                        Jump(moveInput);
+                } else {
+                    // Stores the player's move input
+                    if (context.action.name == PawnAction.Move) {
+                        moveInput = context.ReadValue<Vector2>();
                     }
 
-                }
-                // Shoot tongue if b is pressed
-                if (context.action.name == PawnAction.ButtonB && moveInput != Vector2.zero) {
-                    tongue.gameObject.SetActive(true);
+                    if (context.action.name == PawnAction.ButtonA) {
+                        // Jump in the input direction
+                        if (IsGrounded()) {
+                            Jump(moveInput);
+                        }
+
+                    }
+                    // Shoot tongue if b is pressed
+                    if (context.action.name == PawnAction.ButtonB && moveInput != Vector2.zero) {
+                        tongue.gameObject.SetActive(true);
+                    }
                 }
             }
         }

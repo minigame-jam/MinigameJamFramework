@@ -12,6 +12,7 @@ namespace Witch {
 
         bool hasFrog = false;
         public float moveSpeed;
+        public static bool isPawnInputEnabled;
         Vector2 moveInput = Vector2.zero;
         Rigidbody rigidBody;
         Vector3 frogPickupSize = new Vector3(3f, 2f, 3f);
@@ -33,68 +34,69 @@ namespace Witch {
             rigidBody = GetComponent<Rigidbody>();
         }
         protected override void OnActionPressed(InputAction.CallbackContext context) {
+            if (isPawnInputEnabled){
+                if (context.action.name == PawnAction.Move) {
+                    moveInput = context.ReadValue<Vector2>();
+                }
 
-            if (context.action.name == PawnAction.Move) {
-                moveInput = context.ReadValue<Vector2>();
-            }
+                if (context.action.name == PawnAction.ButtonA) {
 
-            if (context.action.name == PawnAction.ButtonA) {
+                    if (hasFrog) {
 
-                if (hasFrog) {
+                        Collider[] collisions = Physics.OverlapBox(transform.position, cauldronDetectSize / 2f, transform.rotation);
 
-                    Collider[] collisions = Physics.OverlapBox(transform.position, cauldronDetectSize / 2f, transform.rotation);
-
-                    foreach (Collider collision in collisions) {
-                        if (collision.GetComponent<Cauldron>() != null) {
-                            Destroy(transform.GetComponentInChildren<FrogMovement>().gameObject);
-                        }
-                    }
-                } else {
-
-                    Collider[] collisions = Physics.OverlapBox(transform.position, frogPickupSize / 2f, transform.rotation);
-
-                    List<FrogMovement> frogs = new List<FrogMovement>();
-
-                    foreach (Collider collision in collisions) {
-                        if (collision.TryGetComponent<FrogMovement>(out FrogMovement frog)) {
-                            frogs.Add(frog);
-                        }
-                    }
-
-                    FrogMovement selectedFrog = null;
-
-                    switch (frogs.Count) {
-                        case 0:
-                            break;
-
-                        case 1:
-                            selectedFrog = frogs[0];
-                            Debug.Log(frogs[0].frogNumber);
-                            break;
-
-                        case >= 2:
-
-                            FrogMovement closestFrog = null;
-                            float closestDistance = Mathf.Infinity;
-
-                            foreach (FrogMovement frog in frogs) {
-
-                                float distance = (frog.transform.position - transform.transform.position).magnitude;
-
-                                if (distance < closestDistance) {
-                                    closestDistance = distance;
-                                    closestFrog = frog;
-                                }
+                        foreach (Collider collision in collisions) {
+                            if (collision.GetComponent<Cauldron>() != null) {
+                                Destroy(transform.GetComponentInChildren<FrogMovement>().gameObject);
                             }
+                        }
+                    } else {
 
-                            selectedFrog = closestFrog;
-                            Debug.Log(closestFrog.frogNumber);
+                        Collider[] collisions = Physics.OverlapBox(transform.position, frogPickupSize / 2f, transform.rotation);
 
-                            break;
-                    }
+                        List<FrogMovement> frogs = new List<FrogMovement>();
 
-                    if (selectedFrog != null) {
-                        GrabFrog(selectedFrog);
+                        foreach (Collider collision in collisions) {
+                            if (collision.TryGetComponent<FrogMovement>(out FrogMovement frog)) {
+                                frogs.Add(frog);
+                            }
+                        }
+
+                        FrogMovement selectedFrog = null;
+
+                        switch (frogs.Count) {
+                            case 0:
+                                break;
+
+                            case 1:
+                                selectedFrog = frogs[0];
+                                Debug.Log(frogs[0].frogNumber);
+                                break;
+
+                            case >= 2:
+
+                                FrogMovement closestFrog = null;
+                                float closestDistance = Mathf.Infinity;
+
+                                foreach (FrogMovement frog in frogs) {
+
+                                    float distance = (frog.transform.position - transform.transform.position).magnitude;
+
+                                    if (distance < closestDistance) {
+                                        closestDistance = distance;
+                                        closestFrog = frog;
+                                    }
+                                }
+
+                                selectedFrog = closestFrog;
+                                Debug.Log(closestFrog.frogNumber);
+
+                                break;
+                        }
+
+                        if (selectedFrog != null) {
+                            GrabFrog(selectedFrog);
+                        }
                     }
                 }
             }
