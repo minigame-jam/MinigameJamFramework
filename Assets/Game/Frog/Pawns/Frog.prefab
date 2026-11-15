@@ -381,10 +381,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.40408233
+  m_Height: 2.3543577
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.17717886, z: -0.09}
 --- !u!114 &1363342410226845426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,9 +398,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Frog.Tongue
   frog: {fileID: 7190075940433383320}
-  distFromFrog: 0.5
-  growSpeed: 15
-  maxLength: 4
+  distFromFrog: 0.25
+  growSpeed: 20
+  maxLength: 5
+  grappleMultiplier: 2
 --- !u!1 &8071693910880502942
 GameObject:
   m_ObjectHideFlags: 0

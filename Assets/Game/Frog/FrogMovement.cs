@@ -34,6 +34,8 @@ namespace Frog {
         [SerializeField] private int escapeClickAmount;
         private int currentClickAmount = 0;
 
+        private int fliesEaten = 0;
+
 
         // The direction of the player's movement input
         Vector2 moveInput = Vector2.zero;
@@ -178,6 +180,12 @@ namespace Frog {
             playSFX("jump");
             justJumped = true;
 
+        }
+
+        // Eats the given number of flies and returns the result (just pass in 0 to work as a getter for fliesEaten)
+        public int EatFly(int numFlies) {
+            fliesEaten += numFlies;
+            return fliesEaten;
         }
     }
 }

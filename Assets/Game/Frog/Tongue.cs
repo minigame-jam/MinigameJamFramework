@@ -12,6 +12,8 @@ namespace Frog {
         public float distFromFrog;
         public float growSpeed = 1;
         public float maxLength;
+        // Multiplied to the jumpstrength when grappling
+        public float grappleMultiplier = 1;
 
         private float length = 0;
         private Vector2 moveInput = Vector2.zero;
@@ -43,22 +45,32 @@ namespace Frog {
         }
 
         void OnTriggerEnter(Collider collider) {
+            
+            // Pull other frogs towards you
             if (collider.GetComponent<Frog.FrogMovement>() != null) {
                 Frog.FrogMovement otherFrog = collider.GetComponent<FrogMovement>();
 
                 if (otherFrog.frogNumber != frog.frogNumber){
-                    // Make otherFrog jump towards frog
+                    otherFrog.Jump(-moveInput);
                     Stop();
                 }
             }
+            // Eat flies
             else if (collider.GetComponent<Frog.FlyMovement>() != null) {
-                // eat fly
+                Destroy(collider.gameObject);
+                frog.EatFly(1);
                 Stop();
             }
             //else if (collider.GetComponent<Frog.GrapplePoint>() != null) {
             //    // jump towards grapple
             //    Stop();
             //}
+
+            // Grapple to other objects
+            else {
+                frog.Jump(moveInput* grappleMultiplier);
+                Stop();
+            }
         }
 
         void Stop() {
