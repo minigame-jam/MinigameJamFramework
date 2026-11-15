@@ -10,7 +10,6 @@ namespace Witch {
 
     public class WitchMovement : Pawn {
 
-
         bool hasFrog = false;
         public float moveSpeed;
         Vector2 moveInput = Vector2.zero;
@@ -20,6 +19,14 @@ namespace Witch {
 
         [SerializeField] float acceleration;
         [SerializeField] float maxSpeed;
+
+        [SerializeField] private AudioSource sfxSource;
+        [SerializeField] private AudioClip sfx_footsteps_1;
+        [SerializeField] private AudioClip sfx_footsteps_2;
+        [SerializeField] private AudioClip sfx_footsteps_3;
+
+        float footstepTime = 0.3f;
+        float footstepCooldown = 0.3f;
 
 
         void Start() {
@@ -118,6 +125,16 @@ namespace Witch {
                     ForceMode.Acceleration
                 );
             }
+
+            if (horizontalVelocity.magnitude > 0.1) {
+                if (footstepCooldown <= 0) {
+                    playSFX("walk");
+                    footstepCooldown = Random.Range(footstepTime - 0.02f, footstepTime + 0.02f);
+                }
+                else {
+                    footstepCooldown -= Time.deltaTime;
+                }
+            }
         }
         void OnDrawGizmos() {
             Gizmos.color = Color.green;
@@ -126,6 +143,24 @@ namespace Witch {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(transform.position, cauldronDetectSize);
         }
+
+        // Plays sound effects
+        public void playSFX(string sfxTrigger) {
+            int rngSFX = 1;
+            if (sfxTrigger == "walk") {
+                rngSFX = Random.Range(1,4);
+                if (rngSFX == 1) {
+                    sfxSource.PlayOneShot(sfx_footsteps_1);
+                }
+                else if (rngSFX == 2) {
+                    sfxSource.PlayOneShot(sfx_footsteps_2);
+                }
+                else if (rngSFX == 3) {
+                    sfxSource.PlayOneShot(sfx_footsteps_3);
+                }
+            }
+        }
+
 
 
     }

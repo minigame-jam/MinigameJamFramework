@@ -1327,8 +1327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawns:
-  - {fileID: 1397598279}
   - {fileID: 1850455340}
+  - {fileID: 1397598279}
   - {fileID: 214426336}
   - {fileID: 975632536}
 --- !u!4 &736634831
@@ -4527,6 +4527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Witch
       objectReference: {fileID: 0}
+    - target: {fileID: 4710695666677176008, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6
@@ -4575,6 +4579,10 @@ PrefabInstance:
       propertyPath: acceleration
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 7611911262825938307, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
+      propertyPath: sfx_footsteps_3
+      value: 
+      objectReference: {fileID: 8300000, guid: 42f098c1898864feca7fc74147e7e20b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4932,8 +4940,8 @@ SceneRoots:
   - {fileID: 1828795713}
   - {fileID: 930499749}
   - {fileID: 1530569958}
-  - {fileID: 1397598278}
   - {fileID: 1961824786}
+  - {fileID: 1397598278}
   - {fileID: 214426335}
   - {fileID: 975632535}
   - {fileID: 878258870}
