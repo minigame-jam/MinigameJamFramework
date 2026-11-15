@@ -14,6 +14,7 @@ namespace Frog {
         public float maxLength;
         // Multiplied to the jumpstrength when grappling
         public float grappleMultiplier = 1;
+        public GameObject tongueTip;
 
         private float length = 0;
         private Vector2 moveInput = Vector2.zero;
@@ -27,6 +28,7 @@ namespace Frog {
             Vector3 currentRotation = transform.eulerAngles;
             currentRotation.y = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
             transform.eulerAngles = currentRotation;
+            tongueTip.SetActive(true);
         }
 
         void Update() {
@@ -75,6 +77,7 @@ namespace Frog {
 
         void Stop() {
             length = 0;
+            tongueTip.SetActive(false);
             gameObject.SetActive(false);
         }
 
