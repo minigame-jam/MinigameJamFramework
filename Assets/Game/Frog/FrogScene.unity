@@ -2390,6 +2390,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1072664537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4710695666677176008, guid: a818809f5d1f54ec485ce1b17f441725, type: 3}
+  m_PrefabInstance: {fileID: 1789785962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1194763143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,6 +2427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5b9f68ae7827449a7df78d91f6f433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caul.Cauldron
+  fly: {fileID: 1072664537}
 --- !u!65 &1194763145
 BoxCollider:
   m_ObjectHideFlags: 0
