@@ -18,6 +18,9 @@ namespace Witch {
         Vector3 frogPickupSize = new Vector3(3f, 2f, 3f);
         Vector3 cauldronDetectSize = new Vector3(1.5f, 1.5f, 1.5f);
 
+        [SerializeField] float acceleration;
+        [SerializeField] float maxSpeed;
+
 
         void Start() {
             rigidBody = GetComponent<Rigidbody>();
@@ -36,7 +39,7 @@ namespace Witch {
 
                     foreach (Collider collision in collisions) {
                         if (collision.GetComponent<Cauldron>() != null) {
-                            //Excute Frog
+                            Destroy(transform.GetComponentInChildren<FrogMovement>().gameObject);
                         }
                     }
                 } else {
@@ -100,10 +103,22 @@ namespace Witch {
             this.hasFrog = hasFrog;
         }
 
-        private void Update() {
-            rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed, 0f, moveInput.y * moveSpeed);
-        }
+        private void FixedUpdate() {
+            Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
+            Vector3 horizontalVelocity = new Vector3(
+                rigidBody.linearVelocity.x,
+                0f,
+                rigidBody.linearVelocity.z
+            );
+
+            if (horizontalVelocity.magnitude < maxSpeed) {
+                rigidBody.AddForce(
+                    moveDirection * acceleration,
+                    ForceMode.Acceleration
+                );
+            }
+        }
         void OnDrawGizmos() {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, frogPickupSize);

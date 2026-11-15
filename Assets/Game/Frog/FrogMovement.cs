@@ -51,6 +51,8 @@ namespace Frog {
             if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null) {
                 spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
             }
+
+            currentClickAmount = escapeClickAmount;
         }
 
         void Update() {
@@ -65,7 +67,12 @@ namespace Frog {
         protected override void OnActionPressed(InputAction.CallbackContext context) {
             if (frogState == FrogState.Grabbed) {
                 if(context.action.name == PawnAction.ButtonA) {
-                    FrogReleased();
+                    currentClickAmount--;
+                    FrogStruggle();
+
+                    if (currentClickAmount <= 0) {
+                        FrogReleased();
+                    }
                 }
             } 
             else {
@@ -106,6 +113,7 @@ namespace Frog {
         public void FrogGrabbed(WitchMovement witch) {
 
             rigidBody.isKinematic = true;
+            currentClickAmount = escapeClickAmount;
             transform.SetParent(witch.transform);
             transform.localPosition = new Vector3(0, 1.5f, 0);
             if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null)  spriteRenderer.sprite = pickupFrogSprites[0];
@@ -113,15 +121,26 @@ namespace Frog {
 
         }
 
+        public void FrogStruggle() {
+
+            while (true) {
+                int randomNumber = Random.Range(0, 4);
+                if (spriteRenderer.sprite != pickupFrogSprites[randomNumber]) {
+                    spriteRenderer.sprite = pickupFrogSprites[randomNumber];
+                    break;
+                }
+            }
+        }
+
         public void FrogReleased() {
             transform.GetComponentInParent<WitchMovement>().SetHasFrog();
+            ChangeCurrentState(FrogMovement.FrogState.None);
             rigidBody.isKinematic = false;
             transform.localPosition = Vector3.zero;
             moveInput = Random.insideUnitCircle.normalized;
             rigidBody.linearVelocity = new Vector3(moveInput.x * moveSpeed * 1.5f, jumpHeight, moveInput.y * moveSpeed * 1.5f);
             transform.position = new Vector3(transform.parent.position.x, 1.5f, transform.parent.position.z);
             transform.SetParent(null);
-            ChangeCurrentState(FrogMovement.FrogState.None);
         }
 
         // Checks to see if the player is no longer moving downwards (aka is on the ground)
