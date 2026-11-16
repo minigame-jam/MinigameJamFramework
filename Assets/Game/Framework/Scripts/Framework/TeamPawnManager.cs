@@ -101,7 +101,7 @@ namespace Game.Examples {
 
         private Pawn GetPawn(int index) {
             if(!_assignedPawns.ContainsKey(index)) {
-                Debug.LogError($"TeamPawnManager.GetPawn(): Pawn missing for player index {index}. Dictionary does not contain key. Returned null.");
+                Debug.LogWarning($"TeamPawnManager.GetPawn(): Pawn missing for player index {index}. Dictionary does not contain key. Returned null.");
                 return null;
             }
             return _assignedPawns[index];
