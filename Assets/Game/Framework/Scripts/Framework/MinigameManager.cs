@@ -49,6 +49,7 @@ public class MinigameManager : MonoBehaviour
     // Represents the rank of each player in each minigame that has been played. Duplicate minigames supported.
     [HideInInspector]
     public List<KeyValuePair<MinigameInfo, Ranking>> minigameResults = new();
+    private MinigameInfo _currentMinigame = null;
 
 
     // Sets expectedPlayers in PlayerManager
@@ -102,6 +103,7 @@ public class MinigameManager : MonoBehaviour
     public void LoadMinigame(MinigameInfo minigame) {
         SceneManager.LoadScene(minigame.scene.SceneName);
         PlayerManager.SetMinigameActionMap();
+        _currentMinigame = minigame;
         _isMinigameEnded = false;
     }
     
@@ -124,7 +126,8 @@ public class MinigameManager : MonoBehaviour
         
         _isMinigameEnded = true;
         AwardPoints(ranking.ToList());
-        minigameResults.Add(new KeyValuePair<MinigameInfo, Ranking>(null, ranking));
+        minigameResults.Add(new KeyValuePair<MinigameInfo, Ranking>(_currentMinigame, ranking));
+        _currentMinigame = null;
         PlayerManager.SetMenuActionMap();
         SceneManager.LoadScene(resultsScene.SceneName);
     }
@@ -138,6 +141,7 @@ public class MinigameManager : MonoBehaviour
             player.points = 0;
         }
         minigameResults.Clear();
+        _currentMinigame = null;
     }
 
     private void AwardPoints(List<int> ranking) {
