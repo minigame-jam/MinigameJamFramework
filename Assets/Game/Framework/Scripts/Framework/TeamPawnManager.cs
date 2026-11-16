@@ -71,10 +71,7 @@ namespace Game.Examples {
         }
         
         private void BindConnectedPawns() {
-            foreach(Player player in PlayerManager.players) {
-                int index = player.playerIndex;
-                BindPawn(index);
-            }
+            foreach(Player player in PlayerManager.players) BindPawn(player.playerIndex);
         }
 
         private void BindPawn(int index) {
