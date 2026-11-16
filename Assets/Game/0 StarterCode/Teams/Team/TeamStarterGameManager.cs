@@ -7,7 +7,7 @@ namespace Starter.Team {
     public class TeamStarterGameManager : MonoBehaviour {
         private MinigameManager.Ranking _ranking = new();
         [SerializeField] public List<Material> materials;
-        private Dictionary<int, Team> teamPlayers;
+        private Dictionary<int, Team> teamAssignment; // Key: player index, Value: team
 
         public static TeamStarterGameManager instance;
         private void Awake() {
@@ -18,18 +18,12 @@ namespace Starter.Team {
             }
         }
 
-        public void AddPlayerToTeam(int playerIndex, Team team) {
-            if(!teamPlayers.ContainsKey(playerIndex)) {
-                teamPlayers.Add(playerIndex, team);
-            }
-        }
-
         public void EndMinigame() {
             // Find winning team
             Team winningTeam = Team.Unassigned; 
             // Find players on winning team
-            foreach (int playerIndex in teamPlayers.Keys) {
-                if (teamPlayers[playerIndex]==winningTeam) {
+            foreach (int playerIndex in teamAssignment.Keys) {
+                if (teamAssignment[playerIndex]==winningTeam) {
                     // If player is on winning team
                 }
                 else {
@@ -39,6 +33,13 @@ namespace Starter.Team {
 
             // TODO: Determine player rankings
             MinigameManager.instance.EndMinigame(_ranking);
+        }
+
+
+        public void AddPlayerToTeam(int playerIndex, Team team) {
+            if (!teamAssignment.ContainsKey(playerIndex)) {
+                teamAssignment.Add(playerIndex, team);
+            }
         }
     }
 
