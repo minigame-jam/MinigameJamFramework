@@ -48,7 +48,7 @@ public class MinigameManager : MonoBehaviour
 
     // Represents the rank of each player in each minigame that has been played. Duplicate minigames supported.
     [HideInInspector]
-    public List<KeyValuePair<MinigameInfo, Ranking>> minigameRankings = new();
+    public List<KeyValuePair<MinigameInfo, Ranking>> minigameResults = new();
 
 
     // Sets expectedPlayers in PlayerManager
@@ -124,7 +124,7 @@ public class MinigameManager : MonoBehaviour
         
         _isMinigameEnded = true;
         AwardPoints(ranking.ToList());
-        minigameRankings.Add(new KeyValuePair<MinigameInfo, Ranking>(null, ranking));
+        minigameResults.Add(new KeyValuePair<MinigameInfo, Ranking>(null, ranking));
         PlayerManager.SetMenuActionMap();
         SceneManager.LoadScene(resultsScene.SceneName);
     }
@@ -137,7 +137,7 @@ public class MinigameManager : MonoBehaviour
         foreach(Player player in PlayerManager.players) {
             player.points = 0;
         }
-        minigameRankings.Clear();
+        minigameResults.Clear();
     }
 
     private void AwardPoints(List<int> ranking) {
@@ -151,11 +151,11 @@ public class MinigameManager : MonoBehaviour
     }
 
     public KeyValuePair<MinigameInfo, Ranking> GetLastMinigameResult() {
-        if (minigameRankings.Count == 0) {
+        if (minigameResults.Count == 0) {
             Debug.LogWarning("MinigameManager: GetLastMinigameResult called but no minigames have been played yet.");
             return new KeyValuePair<MinigameInfo, Ranking>(null, new Ranking());
         }
-        return minigameRankings[minigameRankings.Count - 1];
+        return minigameResults[minigameResults.Count - 1];
     }
     public int GetPointsForLastMinigameRank(int playerIndex) {
         return GetPointsForRank(GetLastMinigameResult().Value[playerIndex]);
