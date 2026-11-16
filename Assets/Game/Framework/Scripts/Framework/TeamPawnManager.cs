@@ -24,6 +24,8 @@ namespace Game.Examples {
 
         private Dictionary<int, Pawn> _assignedPawns = new Dictionary<int, Pawn>();
 
+        // Count of players assigned to Team A and Team B
+        private int a = 0, b = 0;
 
 
         private void Start() {
@@ -40,42 +42,31 @@ namespace Game.Examples {
                 return;
             }
 
-
-            // Randomly assign players to teams
-            // Support different team sizes
-            // Make sure that each team has at least one player
-            // Prioritize connected players
-            // Ensure assignment for players that havent joined yet     
-            
             int playerCount = PlayerManager.players.Count;
-            int teamASize = teamAPawns.Count;
-            int teamBSize = teamBPawns.Count;
 
-            if (teamASize + teamBSize < 4) {
-                Debug.LogWarning($"TeamPawnManager: Found {teamASize + teamBSize} pawns. Required pawn count is 4.");
-            }
-            if(playerCount>teamASize+teamBSize) {
-                Debug.LogError($"TeamPawnManager: Failed to connect pawns. Found {teamASize + teamBSize} pawns. Found {playerCount} players.");
+            #region Error Checking
+            if (teamAPawns.Count + teamBPawns.Count < 4) Debug.LogWarning($"TeamPawnManager: Found {teamAPawns.Count + teamBPawns.Count} pawns. Required pawn count is 4.");
+            if (teamAPawns.Count + teamBPawns.Count >= 4) {
+                Debug.LogError($"TeamPawnManager: Failed to connect pawns. Found {teamAPawns.Count + teamBPawns.Count} pawns. Required pawn count is 4.");
                 return;
             }
-            if (teamASize + teamBSize >= 4) {
-                Debug.LogError($"TeamPawnManager: Failed to connect pawns. Found {teamASize+teamBSize} pawns. Required pawn count is 4.");
+            if (playerCount> teamAPawns.Count + teamBPawns.Count) {
+                Debug.LogError($"TeamPawnManager: Failed to connect pawns. Found {teamAPawns.Count + teamBPawns.Count} pawns. Found {playerCount} players.");
                 return;
             }
+            #endregion
 
-            List<int> shuffledIndexList = new();
-            for(int i = 0; i < playerCount; i++) shuffledIndexList.Add(i);
-            shuffledIndexList.Shuffle();
+            List<int> indexList = new();
 
-            int a = 0, b = 0;
+            // Assign connected players
+            for(int i = 0; i < playerCount; i++) indexList.Add(i);
+            AssignTeamToPlayers(indexList);
 
-            AssignTeamToPlayers(shuffledIndexList, 0, 0, out a, out b);
-
+            // Assign non-connected players
             if(playerCount<4) {
-                shuffledIndexList.Clear();
-                for (int i = playerCount; i < 4; i++) shuffledIndexList.Add(i);
-                shuffledIndexList.Shuffle();
-                AssignTeamToPlayers(shuffledIndexList, a, b, out _, out _, offset: playerCount);
+                indexList.Clear();
+                for (int i = playerCount; i < 4; i++) indexList.Add(i);
+                AssignTeamToPlayers(indexList, offset: playerCount);
             }
         }
         
@@ -119,7 +110,13 @@ namespace Game.Examples {
             return _assignedPawns[index];
         }
 
-        private void AssignTeamToPlayers(List<int> indexList, int a, int b, out int aOut, out int bOut, int offset = 0) {
+        /// <summary>
+        /// Add Key Value pair between player index and random pawn to Dictionary for each player index in list.
+        /// </summary>
+        /// <param name="indexList">List of player indices to assign</param>
+        /// <param name="offset">Number of players already bound. Ensures even alternation for logic between calls.</param>
+        private void AssignTeamToPlayers(List<int> indexList, int offset = 0) {
+            indexList.Shuffle();
             for (int i = 0; i < indexList.Count; i++) {
                 if ((i + offset % 2 == 0 || b > teamBPawns.Count) && a < teamAPawns.Count) {
                     _assignedPawns.Add(indexList[i], teamAPawns[a]);
@@ -131,34 +128,30 @@ namespace Game.Examples {
                     Debug.LogError($"TeamPawnManager: Both teams full. Found {teamAPawns.Count + teamBPawns.Count} pawns. Required pawn count is 4.");
                 }
             }
-            aOut = a;
-            bOut = b;
         }
 
 
         private void AssignDebugTeams() {
-            int teamASize = teamAPawns.Count;
-            int teamBSize = teamBPawns.Count;
             // Fill team A and B with alternating players
             if (fillAlternating) {
                 int a = 0, b = 0;
                 for (int i = 0; i < 4; i++) {
-                    if ((i % 2 == 0 || b > teamBSize) && a < teamASize) {
+                    if ((i % 2 == 0 || b > teamBPawns.Count) && a < teamAPawns.Count) {
                         _assignedPawns.Add(i, teamAPawns[a]);
                         a++;
-                    } else if(b<teamBSize) {
+                    } else if(b< teamBPawns.Count) {
                         _assignedPawns.Add(i, teamBPawns[b]);
                         b++;
                     }
                     else {
-                        Debug.LogError($"TeamPawnManager: Both teams full. Found {teamASize + teamBSize} pawns. Required pawn count is 4.");
+                        Debug.LogError($"TeamPawnManager: Both teams full. Found {teamAPawns.Count + teamBPawns.Count} pawns. Required pawn count is 4.");
                     }
                 }
             }
             // Fill team A before team B
             else {
-                for (int i = 0; i < teamASize; i++) _assignedPawns.Add(i, teamAPawns[i]);
-                for (int i = 0; i < teamBSize; i++) _assignedPawns.Add(teamAPawns.Count + i, teamBPawns[i]);
+                for (int i = 0; i < teamAPawns.Count; i++) _assignedPawns.Add(i, teamAPawns[i]);
+                for (int i = 0; i < teamBPawns.Count; i++) _assignedPawns.Add(teamAPawns.Count + i, teamBPawns[i]);
             }
         }
     }
