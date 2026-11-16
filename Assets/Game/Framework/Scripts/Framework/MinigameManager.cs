@@ -126,14 +126,21 @@ public class MinigameManager : MonoBehaviour
         SceneManager.LoadScene(resultsScene.SceneName);
     }
 
+    
+    public void ResetPoints() {
+        foreach(Player player in PlayerManager.players) {
+            player.points = 0;
+        }
+    }
+
     private void AwardPoints(List<int> ranking) {
-        for(int playerIndex = 0; playerIndex < PlayerManager.players.Count; playerIndex++) {
+        for (int playerIndex = 0; playerIndex < PlayerManager.players.Count; playerIndex++) {
             int playerRank = ranking[playerIndex];
             PlayerManager.players[playerIndex].points += GetPointsForRank(playerRank);
         }
     }
     private int GetPointsForRank(int rank) {
-        switch(rank) {
+        switch (rank) {
             case 1:
                 return pointsForFirstPlace;
             case 2:
@@ -146,12 +153,7 @@ public class MinigameManager : MonoBehaviour
                 return 0;
         }
     }
-    public void ResetPoints() {
-        foreach(Player player in PlayerManager.players) {
-            player.points = 0;
-        }
-    }
-    
+
     /// <summary>
     /// Collection representing the placement of each player in a minigame.
     /// Index corresponds to player index with range [0-3]. Value corresponds to that player's rank with range [1-4] .
@@ -162,7 +164,12 @@ public class MinigameManager : MonoBehaviour
 
         public int this[int index] {
             get => _playerRanks[index];
-            set => _playerRanks[index] = Math.Clamp(value, 1, 4);
+            set {
+                if(value < 1 || value > 4) {
+                    Debug.LogWarning($"Ranking: new value should be in range [1-4]. Value {value} clamped to {Math.Clamp(value, 1, 4)}.");
+                }
+                _playerRanks[index] = Math.Clamp(value, 1, 4);
+            }
         }
 
         public List<int> ToList() {
@@ -170,28 +177,18 @@ public class MinigameManager : MonoBehaviour
         }
         
         public int GetNextHighestRank() {
-            int nextHighestRank = 1;
-            
-            if(_playerRanks.Contains(1)) {
-                nextHighestRank = 2;
-            } else if(_playerRanks.Contains(2)) {
-                nextHighestRank = 3;
-            } else if(_playerRanks.Contains(3)) {
-                nextHighestRank = 4;
+            int i = 1;
+            for(; i <= 4; i++) {
+                if (!_playerRanks.Contains(i)) break;
             }
-            
-            return nextHighestRank;
+            return i;
         }
         public int GetNextLowestRank() {
-            int nextLowestRank = 4;
-            if (_playerRanks.Contains(4)) {
-                nextLowestRank = 3;
-            } else if (_playerRanks.Contains(3)) {
-                nextLowestRank = 2;
-            } else if (_playerRanks.Contains(2)) {
-                nextLowestRank = 1;
+            int i = 4;
+            for (; i >= 1; i--) {
+                if (!_playerRanks.Contains(i)) break;
             }
-            return nextLowestRank;
+            return i;
         }
         
         public void SetRank(int playerIndex, int rank) {
@@ -204,7 +201,7 @@ public class MinigameManager : MonoBehaviour
         }
         public void SetRanksFromPlayerIndexList(int[] playerIndexList) {
             if(playerIndexList.Length > 4) {
-                throw new ArgumentException("Ranking::SetRank: parameter 'playerIndexList' length cannot be greater than 4");
+                throw new ArgumentException("Ranking: argument 'playerIndexList' length cannot be greater than 4");
             }
             for(int i = 0; i < 4; i++) {
                 if (i >= playerIndexList.Length) break;
@@ -229,14 +226,13 @@ public class MinigameManager : MonoBehaviour
             
             // Set up player index list
             List<int> playerIndexList = new();
-            for(int i = 0; i < scores.Count; i++) {
-                playerIndexList.Add(i);
-            }
+            for(int i = 0; i < scores.Count; i++) playerIndexList.Add(i);
             // Sort player index list to be ordered by player score
             playerIndexList.Sort((a, b) => scores[b].CompareTo(scores[a]));
             // Determine rankings 
             SetRank(playerIndexList[0],1);
             print($"Player {playerIndexList[0]+1} ranked 1");
+
             for (int i = 1; i < playerIndexList.Count; i++) {
                 int prevPlayerRank = this[playerIndexList[i - 1]];
                 
@@ -257,7 +253,7 @@ public class MinigameManager : MonoBehaviour
         PlayerManager.SetMenuActionMap();
     }
     private void OnPauseButton() {
-        if(FindAnyObjectByType<PauseMenuButtons>() != null) {
+        if (FindAnyObjectByType<PauseMenuButtons>() != null) {
             // Already paused
             return;
         }
@@ -265,7 +261,7 @@ public class MinigameManager : MonoBehaviour
         Instantiate(pauseMenuPrefab);
         PlayerManager.SetMenuActionMap();
     }
-    
+
     public List<Sprite> GetPackageSprites() {
         // if debugMinigame, just return its sprite
         // otherwise return the pack thumbnails for each selected pack
@@ -273,11 +269,10 @@ public class MinigameManager : MonoBehaviour
         if (debugMinigame != null) {
             sprites.Add(debugMinigame.thumbnail);
         } else {
-            foreach(MinigamePack pack in activePacks) {
+            foreach (MinigamePack pack in activePacks) {
                 sprites.Add(pack.icon);
             }
         }
         return sprites;
     }
-    
 }
