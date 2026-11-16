@@ -60,8 +60,7 @@ MonoBehaviour:
   pointsForThirdPlace: 1
   pointsForFourthPlace: 0
   activePacks:
-  - {fileID: 11400000, guid: 1e7bae43b3f84a54097f6ac2b8b80010, type: 2}
+  - {fileID: 11400000, guid: 6fc878f6551d04240a3aea20b9b98160, type: 2}
   allPacks:
-  - {fileID: 11400000, guid: f737c5b122d006249858b69790eb7e6c, type: 2}
-  - {fileID: 11400000, guid: 1e7bae43b3f84a54097f6ac2b8b80010, type: 2}
+  - {fileID: 11400000, guid: 6fc878f6551d04240a3aea20b9b98160, type: 2}
   debugMinigame: {fileID: 0}
