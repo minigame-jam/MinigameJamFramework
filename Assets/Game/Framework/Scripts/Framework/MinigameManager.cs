@@ -128,7 +128,10 @@ public class MinigameManager : MonoBehaviour
         SceneManager.LoadScene(resultsScene.SceneName);
     }
 
-    
+    /// <summary>
+    /// Reset the game for new players.
+    /// Called when a player wins or a play session is ended early.
+    /// </summary>
     public void ResetPoints() {
         foreach(Player player in PlayerManager.players) {
             player.points = 0;
