@@ -14,7 +14,8 @@ namespace Starter.Team {
         private void OnDisable() => onPlayerIndexChanged.RemoveListener(OnPawnBound);
         
         protected override void OnPawnBound(int index) {
-            GetComponentInChildren<MeshRenderer>().material = TeamStarterGameManager.instance.materials[index];
+            GetComponent<MeshRenderer>().material = TeamStarterGameManager.instance.materials[index];
+            TeamStarterGameManager.instance.AddPlayerToTeam(index, team);
         }
 
         void Update() {
