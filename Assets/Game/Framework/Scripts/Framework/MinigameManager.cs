@@ -37,10 +37,7 @@ public class MinigameManager : MonoBehaviour
     
     [Header("Points")]
     public int pointsToWin = 20;
-    public int pointsForFirstPlace = 4;
-    public int pointsForSecondPlace = 3;
-    public int pointsForThirdPlace = 2;
-    public int pointsForFourthPlace = 1;
+    [SerializeField] private int[] pointsPerRank = new int[4] { 4, 3, 2, 1 };
 
     [Header("Minigames")] 
     [FormerlySerializedAs("minigamePacks")]public List<MinigamePack> activePacks = new ();
@@ -48,6 +45,10 @@ public class MinigameManager : MonoBehaviour
     public List<MinigameInfo> minigames { get; private set; }
     public MinigameInfo debugMinigame;
     private bool _isMinigameEnded = false;
+
+    // Represents the rank of each player in each minigame that has been played. Duplicate minigames supported.
+    public List<KeyValuePair<MinigameInfo, Ranking>> minigameRankings = new();
+
 
     // Sets expectedPlayers in PlayerManager
     // Called on start and when minigamePacks is updated
@@ -122,6 +123,7 @@ public class MinigameManager : MonoBehaviour
         
         _isMinigameEnded = true;
         AwardPoints(ranking.ToList());
+        minigameRankings.Add(new KeyValuePair<MinigameInfo, Ranking>(null, ranking));
         PlayerManager.SetMenuActionMap();
         SceneManager.LoadScene(resultsScene.SceneName);
     }
@@ -131,6 +133,7 @@ public class MinigameManager : MonoBehaviour
         foreach(Player player in PlayerManager.players) {
             player.points = 0;
         }
+        minigameRankings.Clear();
     }
 
     private void AwardPoints(List<int> ranking) {
@@ -140,18 +143,18 @@ public class MinigameManager : MonoBehaviour
         }
     }
     private int GetPointsForRank(int rank) {
-        switch (rank) {
-            case 1:
-                return pointsForFirstPlace;
-            case 2:
-                return pointsForSecondPlace;
-            case 3:
-                return pointsForThirdPlace;
-            case 4:
-                return pointsForFourthPlace;
-            default:
-                return 0;
+        return pointsPerRank[Math.Clamp(rank - 1, 0, 3)];
+    }
+
+    public KeyValuePair<MinigameInfo, Ranking> GetLastMinigameResult() {
+        if (minigameRankings.Count == 0) {
+            Debug.LogWarning("MinigameManager: GetLastMinigameResult called but no minigames have been played yet.");
+            return new KeyValuePair<MinigameInfo, Ranking>(null, new Ranking());
         }
+        return minigameRankings[minigameRankings.Count - 1];
+    }
+    public int GetPointsForLastMinigameRank(int playerIndex) {
+        return GetPointsForRank(GetLastMinigameResult().Value[playerIndex]);
     }
 
     /// <summary>
