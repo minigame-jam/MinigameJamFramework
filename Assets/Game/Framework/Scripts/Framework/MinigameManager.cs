@@ -47,8 +47,7 @@ public class MinigameManager : MonoBehaviour
     private bool _isMinigameEnded = false;
 
     // Represents the rank of each player in each minigame that has been played. Duplicate minigames supported.
-    [HideInInspector]
-    public List<KeyValuePair<MinigameInfo, Ranking>> minigameResults = new();
+    [System.NonSerialized] public List<KeyValuePair<MinigameInfo, Ranking>> minigameResults = new();
     private MinigameInfo _currentMinigame = null;
 
 
