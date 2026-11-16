@@ -37,7 +37,7 @@ public class MinigameManager : MonoBehaviour
     
     [Header("Points")]
     public int pointsToWin = 20;
-    [SerializeField] private int[] pointsPerRank = new int[4] { 4, 3, 2, 1 };
+    [SerializeField] private int[] pointsPerRank = new int[4] { 4, 2, 1, 0 };
 
     [Header("Minigames")] 
     [FormerlySerializedAs("minigamePacks")]public List<MinigamePack> activePacks = new ();
