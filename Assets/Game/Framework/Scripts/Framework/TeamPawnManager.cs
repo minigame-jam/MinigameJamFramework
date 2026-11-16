@@ -21,7 +21,7 @@ namespace Game.Examples {
         [Tooltip("When enabled, connected players are disitributed evenly between teams. When disabled, Team A is filled completely before Team B.")]
         [SerializeField] bool fillAlternating = true;
 
-
+        [SerializeField]
         private Dictionary<int, Pawn> _assignedPawns = new Dictionary<int, Pawn>();
 
         // Count of players assigned to Team A and Team B
@@ -46,7 +46,7 @@ namespace Game.Examples {
 
             #region Error Checking
             if (teamAPawns.Count + teamBPawns.Count < 4) Debug.LogWarning($"TeamPawnManager: Found {teamAPawns.Count + teamBPawns.Count} pawns. Required pawn count is 4.");
-            if (teamAPawns.Count + teamBPawns.Count >= 4) {
+            if (teamAPawns.Count + teamBPawns.Count > 4) {
                 Debug.LogError($"TeamPawnManager: Failed to connect pawns. Found {teamAPawns.Count + teamBPawns.Count} pawns. Required pawn count is 4.");
                 return;
             }
@@ -66,7 +66,7 @@ namespace Game.Examples {
             if(playerCount<4) {
                 indexList.Clear();
                 for (int i = playerCount; i < 4; i++) indexList.Add(i);
-                AssignTeamToPlayers(indexList, offset: playerCount);
+                AssignTeamToPlayers(indexList);
             }
         }
         
@@ -112,10 +112,12 @@ namespace Game.Examples {
         /// </summary>
         /// <param name="indexList">List of player indices to assign</param>
         /// <param name="offset">Number of players already bound. Ensures even alternation for logic between calls.</param>
-        private void AssignTeamToPlayers(List<int> indexList, int offset = 0) {
+        private void AssignTeamToPlayers(List<int> indexList) {
             indexList.Shuffle();
+
+            int offset = _assignedPawns.Count % 2 != 0 ? _assignedPawns.Count : UnityEngine.Random.Range(1, 3);
             for (int i = 0; i < indexList.Count; i++) {
-                if ((i + offset % 2 == 0 || b > teamBPawns.Count) && a < teamAPawns.Count) {
+                if ((i + offset % 2 == 0 || b >= teamBPawns.Count) && a < teamAPawns.Count) {
                     _assignedPawns.Add(indexList[i], teamAPawns[a]);
                     a++;
                 } else if (b < teamBPawns.Count) {
