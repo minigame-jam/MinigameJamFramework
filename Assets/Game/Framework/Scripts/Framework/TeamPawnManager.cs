@@ -21,7 +21,6 @@ namespace Game.Examples {
         [Tooltip("When enabled, connected players are disitributed evenly between teams. When disabled, Team A is filled completely before Team B.")]
         [SerializeField] bool fillAlternating = true;
 
-        [SerializeField]
         private Dictionary<int, Pawn> _assignedPawns = new Dictionary<int, Pawn>();
 
         // Count of players assigned to Team A and Team B
@@ -115,7 +114,7 @@ namespace Game.Examples {
         private void AssignTeamToPlayers(List<int> indexList) {
             indexList.Shuffle();
 
-            int offset = _assignedPawns.Count % 2 != 0 ? _assignedPawns.Count : UnityEngine.Random.Range(1, 3);
+            int offset = _assignedPawns.Count % 2 != 0 ? 1 : UnityEngine.Random.Range(1, 3);
             for (int i = 0; i < indexList.Count; i++) {
                 if ((i + offset % 2 == 0 || b >= teamBPawns.Count) && a < teamAPawns.Count) {
                     _assignedPawns.Add(indexList[i], teamAPawns[a]);
