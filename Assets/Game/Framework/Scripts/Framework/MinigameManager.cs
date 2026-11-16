@@ -77,13 +77,13 @@ public class MinigameManager : MonoBehaviour
 
         if (debugMinigame != null) {
             minigames.Add(debugMinigame);
+            return;
         }
-        else {
-            foreach(MinigamePack pack in activePacks) {
-                foreach(MinigameInfo minigame in pack.minigames) {
-                    if (minigame.minimumPlayers <= PlayerManager.GetNumPlayers()) {
-                        minigames.Add(minigame);
-                    }
+
+        foreach(MinigamePack pack in activePacks) {
+            foreach(MinigameInfo minigame in pack.minigames) {
+                if (minigame.minimumPlayers <= PlayerManager.GetNumPlayers()) {
+                    minigames.Add(minigame);
                 }
             }
         }
