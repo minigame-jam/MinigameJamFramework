@@ -87,6 +87,7 @@ namespace Game.MinigameFramework.Scripts.Framework.PlayerInfo {
         public static void SetMenuActionMap() {
             _currentActionMap = "Menu";
             foreach (Player player in players) {
+                if (player.playerInput == null) continue;
                 player.playerInput.SwitchCurrentActionMap("Menu");
             }
         }
