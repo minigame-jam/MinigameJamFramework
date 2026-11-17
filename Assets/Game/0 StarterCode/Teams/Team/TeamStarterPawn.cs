@@ -10,9 +10,6 @@ namespace Starter.Team {
 
         public Team team;
 
-        private void OnEnable() => onPlayerIndexChanged.AddListener(OnPawnBound);
-        private void OnDisable() => onPlayerIndexChanged.RemoveListener(OnPawnBound);
-        
         protected override void OnPawnBound(int index) {
             GetComponent<MeshRenderer>().material = TeamStarterGameManager.instance.materials[index];
             TeamStarterGameManager.instance.AddPlayerToTeam(index, team);
