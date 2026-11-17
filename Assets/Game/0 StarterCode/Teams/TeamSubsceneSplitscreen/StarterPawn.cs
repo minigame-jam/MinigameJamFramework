@@ -10,9 +10,6 @@ namespace Starter.TeamSubsceneSplitscreen {
 
         public Team team;
 
-        private void OnEnable() => onPlayerIndexChanged.AddListener(OnPawnBound);
-        private void OnDisable() => onPlayerIndexChanged.RemoveListener(OnPawnBound);
-
         protected override void OnPawnBound(int index) {
             GetComponent<MeshRenderer>().material = StarterGameManager.instance.materials[index];
             StarterGameManager.instance.AddPlayerToTeam(index, team);
