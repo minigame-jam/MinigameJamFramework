@@ -7,7 +7,7 @@ namespace Starter.Team {
     public class TeamStarterGameManager : MonoBehaviour {
         private MinigameManager.Ranking _ranking = new();
         [SerializeField] public List<Material> materials;
-        private Dictionary<int, Team> teamAssignment; // Key: player index, Value: team
+        private Dictionary<int, Team> teamAssignment = new(); // Key: player index, Value: team
 
         public static TeamStarterGameManager instance;
         private void Awake() {
