@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerPointsUI : MonoBehaviour {
     [SerializeField] private int index;
     public TMPro.TextMeshProUGUI pointsText;
+    public TMPro.TextMeshProUGUI deltaPointsText;
     [SerializeField] private RectTransform bar;
     [SerializeField] private float animationSpeed = 10f;
     private float _minY;
@@ -16,12 +17,13 @@ public class PlayerPointsUI : MonoBehaviour {
         _minY = bar.anchoredPosition.y;
         if (index >= PlayerManager.players.Count) return; // debugging without proper player count
         
-        SetPlayerPoints(PlayerManager.players[index].points);
+        SetPlayerPoints(PlayerManager.players[index].points, MinigameManager.instance.GetPointsForLastMinigameRank(index));
     }
 
 
-    public void SetPlayerPoints(int points) {
+    public void SetPlayerPoints(int points, int deltaPoints) {
         pointsText.text = $"{points} PTS";
+        deltaPointsText.text = $"+{deltaPoints}";
         StartCoroutine(MoveToPosition(GetBarPosition(points)));
     }
 

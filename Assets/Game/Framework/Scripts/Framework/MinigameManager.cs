@@ -37,10 +37,7 @@ public class MinigameManager : MonoBehaviour
     
     [Header("Points")]
     public int pointsToWin = 20;
-    public int pointsForFirstPlace = 4;
-    public int pointsForSecondPlace = 3;
-    public int pointsForThirdPlace = 2;
-    public int pointsForFourthPlace = 1;
+    [SerializeField] private int[] pointsPerRank = new int[4] { 4, 2, 1, 0 };
 
     [Header("Minigames")] 
     [FormerlySerializedAs("minigamePacks")]public List<MinigamePack> activePacks = new ();
@@ -48,6 +45,11 @@ public class MinigameManager : MonoBehaviour
     public List<MinigameInfo> minigames { get; private set; }
     public MinigameInfo debugMinigame;
     private bool _isMinigameEnded = false;
+
+    // Represents the rank of each player in each minigame that has been played. Duplicate minigames supported.
+    [System.NonSerialized] public List<KeyValuePair<MinigameInfo, Ranking>> minigameResults = new();
+    private MinigameInfo _currentMinigame = null;
+
 
     // Sets expectedPlayers in PlayerManager
     // Called on start and when minigamePacks is updated
@@ -74,13 +76,13 @@ public class MinigameManager : MonoBehaviour
 
         if (debugMinigame != null) {
             minigames.Add(debugMinigame);
+            return;
         }
-        else {
-            foreach(MinigamePack pack in activePacks) {
-                foreach(MinigameInfo minigame in pack.minigames) {
-                    if (minigame.minimumPlayers <= PlayerManager.GetNumPlayers()) {
-                        minigames.Add(minigame);
-                    }
+
+        foreach(MinigamePack pack in activePacks) {
+            foreach(MinigameInfo minigame in pack.minigames) {
+                if (minigame.minimumPlayers <= PlayerManager.GetNumPlayers()) {
+                    minigames.Add(minigame);
                 }
             }
         }
@@ -100,6 +102,7 @@ public class MinigameManager : MonoBehaviour
     public void LoadMinigame(MinigameInfo minigame) {
         SceneManager.LoadScene(minigame.scene.SceneName);
         PlayerManager.SetMinigameActionMap();
+        _currentMinigame = minigame;
         _isMinigameEnded = false;
     }
     
@@ -122,36 +125,45 @@ public class MinigameManager : MonoBehaviour
         
         _isMinigameEnded = true;
         AwardPoints(ranking.ToList());
+        minigameResults.Add(new KeyValuePair<MinigameInfo, Ranking>(_currentMinigame, ranking));
+        _currentMinigame = null;
         PlayerManager.SetMenuActionMap();
         SceneManager.LoadScene(resultsScene.SceneName);
     }
 
+    /// <summary>
+    /// Reset the game for new players.
+    /// Called when a player wins or a play session is ended early.
+    /// </summary>
+    public void ResetPoints() {
+        foreach(Player player in PlayerManager.players) {
+            player.points = 0;
+        }
+        minigameResults.Clear();
+        _currentMinigame = null;
+    }
+
     private void AwardPoints(List<int> ranking) {
-        for(int playerIndex = 0; playerIndex < PlayerManager.players.Count; playerIndex++) {
+        for (int playerIndex = 0; playerIndex < PlayerManager.players.Count; playerIndex++) {
             int playerRank = ranking[playerIndex];
             PlayerManager.players[playerIndex].points += GetPointsForRank(playerRank);
         }
     }
     private int GetPointsForRank(int rank) {
-        switch(rank) {
-            case 1:
-                return pointsForFirstPlace;
-            case 2:
-                return pointsForSecondPlace;
-            case 3:
-                return pointsForThirdPlace;
-            case 4:
-                return pointsForFourthPlace;
-            default:
-                return 0;
-        }
+        return pointsPerRank[Math.Clamp(rank - 1, 0, 3)];
     }
-    public void ResetPoints() {
-        foreach(Player player in PlayerManager.players) {
-            player.points = 0;
+
+    public KeyValuePair<MinigameInfo, Ranking> GetLastMinigameResult() {
+        if (minigameResults.Count == 0) {
+            Debug.LogWarning("MinigameManager: GetLastMinigameResult called but no minigames have been played yet.");
+            return new KeyValuePair<MinigameInfo, Ranking>(null, new Ranking());
         }
+        return minigameResults[minigameResults.Count - 1];
     }
-    
+    public int GetPointsForLastMinigameRank(int playerIndex) {
+        return GetPointsForRank(GetLastMinigameResult().Value[playerIndex]);
+    }
+
     /// <summary>
     /// Collection representing the placement of each player in a minigame.
     /// Index corresponds to player index with range [0-3]. Value corresponds to that player's rank with range [1-4] .
@@ -162,7 +174,12 @@ public class MinigameManager : MonoBehaviour
 
         public int this[int index] {
             get => _playerRanks[index];
-            set => _playerRanks[index] = Math.Clamp(value, 1, 4);
+            set {
+                if(value < 1 || value > 4) {
+                    Debug.LogWarning($"Ranking: new value should be in range [1-4]. Value {value} clamped to {Math.Clamp(value, 1, 4)}.");
+                }
+                _playerRanks[index] = Math.Clamp(value, 1, 4);
+            }
         }
 
         public List<int> ToList() {
@@ -170,28 +187,18 @@ public class MinigameManager : MonoBehaviour
         }
         
         public int GetNextHighestRank() {
-            int nextHighestRank = 1;
-            
-            if(_playerRanks.Contains(1)) {
-                nextHighestRank = 2;
-            } else if(_playerRanks.Contains(2)) {
-                nextHighestRank = 3;
-            } else if(_playerRanks.Contains(3)) {
-                nextHighestRank = 4;
+            int i = 1;
+            for(; i <= 4; i++) {
+                if (!_playerRanks.Contains(i)) break;
             }
-            
-            return nextHighestRank;
+            return i;
         }
         public int GetNextLowestRank() {
-            int nextLowestRank = 4;
-            if (_playerRanks.Contains(4)) {
-                nextLowestRank = 3;
-            } else if (_playerRanks.Contains(3)) {
-                nextLowestRank = 2;
-            } else if (_playerRanks.Contains(2)) {
-                nextLowestRank = 1;
+            int i = 4;
+            for (; i >= 1; i--) {
+                if (!_playerRanks.Contains(i)) break;
             }
-            return nextLowestRank;
+            return i;
         }
         
         public void SetRank(int playerIndex, int rank) {
@@ -204,7 +211,7 @@ public class MinigameManager : MonoBehaviour
         }
         public void SetRanksFromPlayerIndexList(int[] playerIndexList) {
             if(playerIndexList.Length > 4) {
-                throw new ArgumentException("Ranking::SetRank: parameter 'playerIndexList' length cannot be greater than 4");
+                throw new ArgumentException("Ranking: argument 'playerIndexList' length cannot be greater than 4");
             }
             for(int i = 0; i < 4; i++) {
                 if (i >= playerIndexList.Length) break;
@@ -229,14 +236,13 @@ public class MinigameManager : MonoBehaviour
             
             // Set up player index list
             List<int> playerIndexList = new();
-            for(int i = 0; i < scores.Count; i++) {
-                playerIndexList.Add(i);
-            }
+            for(int i = 0; i < scores.Count; i++) playerIndexList.Add(i);
             // Sort player index list to be ordered by player score
             playerIndexList.Sort((a, b) => scores[b].CompareTo(scores[a]));
             // Determine rankings 
             SetRank(playerIndexList[0],1);
             print($"Player {playerIndexList[0]+1} ranked 1");
+
             for (int i = 1; i < playerIndexList.Count; i++) {
                 int prevPlayerRank = this[playerIndexList[i - 1]];
                 
@@ -257,7 +263,7 @@ public class MinigameManager : MonoBehaviour
         PlayerManager.SetMenuActionMap();
     }
     private void OnPauseButton() {
-        if(FindAnyObjectByType<PauseMenuButtons>() != null) {
+        if (FindAnyObjectByType<PauseMenuButtons>() != null) {
             // Already paused
             return;
         }
@@ -265,7 +271,7 @@ public class MinigameManager : MonoBehaviour
         Instantiate(pauseMenuPrefab);
         PlayerManager.SetMenuActionMap();
     }
-    
+
     public List<Sprite> GetPackageSprites() {
         // if debugMinigame, just return its sprite
         // otherwise return the pack thumbnails for each selected pack
@@ -273,11 +279,10 @@ public class MinigameManager : MonoBehaviour
         if (debugMinigame != null) {
             sprites.Add(debugMinigame.thumbnail);
         } else {
-            foreach(MinigamePack pack in activePacks) {
+            foreach (MinigamePack pack in activePacks) {
                 sprites.Add(pack.icon);
             }
         }
         return sprites;
     }
-    
 }
