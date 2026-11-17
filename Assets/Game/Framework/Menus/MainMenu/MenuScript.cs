@@ -78,6 +78,7 @@ public class MenuScript : MonoBehaviour {
     // unlocks button as needed, called when player connects or disconnects
     public void CheckUnlockButton() {
         startButton.interactable = PlayerManager.AreAllPlayersConnected();
+        if (_promptWindow != null) return; // don't set focused button if prompt is active
         if (startButton.interactable) {
             PlayerManager.SetSelectedGameObject(startButton.gameObject);
         }
