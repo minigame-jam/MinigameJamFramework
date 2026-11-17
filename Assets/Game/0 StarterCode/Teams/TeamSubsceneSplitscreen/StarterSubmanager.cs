@@ -13,9 +13,7 @@ namespace Starter.TeamSubsceneSplitscreen {
 
         private void Awake() {
             team = StarterGameManager.instance.AddSubscene(this);
-            foreach(StarterPawn pawn in GetComponentsInChildren<StarterPawn>()) {
-                pawn.team = team;
-            }
+            foreach(StarterPawn pawn in GetComponentsInChildren<StarterPawn>()) pawn.team = team;
         }
 
         public int GetScore() {
