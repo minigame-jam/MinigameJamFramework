@@ -11,7 +11,7 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
             set {
                 _playerIndex = value;
                 onPlayerIndexChanged.Invoke(value);
-                if(value>0) {
+                if(value>=0) {
                     OnPawnBound(value);
                 } else {
                     OnPawnUnbound();
@@ -19,6 +19,9 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
             }
         }
         private int _playerIndex = -1;
+        /// <summary>
+        /// Invoked when player index is set to a new value. Be aware that this includes -1 when unbinding a pawn.
+        /// </summary>
         [HideInInspector] public UnityEvent<int> onPlayerIndexChanged = new();
 
         /// <summary>
