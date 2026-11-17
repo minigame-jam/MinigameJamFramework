@@ -11,6 +11,11 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
             set {
                 _playerIndex = value;
                 onPlayerIndexChanged.Invoke(value);
+                if(value>0) {
+                    OnPawnBound(value);
+                } else {
+                    OnPawnUnbound();
+                }
             }
         }
         private int _playerIndex = -1;
@@ -30,6 +35,18 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
         /// </summary>
         /// <param name="context"></param>
         protected virtual void OnActionReleased(InputAction.CallbackContext context) { }
+
+        /// <summary>
+        /// This method will be called when a player has been bound to this pawn.
+        /// </summary>
+        /// <param name="index">Player index.</param>
+        protected virtual void OnPawnBound(int index) {
+        }
+        /// <summary>
+        /// This method will be called when a player has been unbound to this pawn.
+        /// </summary>
+        protected virtual void OnPawnUnbound() {
+        }
 
         public void HandleInput(InputAction.CallbackContext context) {
             if (context.action.actionMap.name != "Minigame") return;
