@@ -57,11 +57,13 @@ MonoBehaviour:
   pointsToWin: 20
   pointsPerRank: 04000000020000000100000000000000i
   activePacks:
-  - {fileID: 11400000, guid: 9c19129210aa330499bcfc682fd92126, type: 2}
+  - {fileID: 11400000, guid: 6fc878f6551d04240a3aea20b9b98160, type: 2}
   - {fileID: 11400000, guid: 3ceff92762d58cd4687adea9ad7adffb, type: 2}
+  - {fileID: 11400000, guid: 9c19129210aa330499bcfc682fd92126, type: 2}
   - {fileID: 11400000, guid: f737c5b122d006249858b69790eb7e6c, type: 2}
   allPacks:
-  - {fileID: 11400000, guid: 9c19129210aa330499bcfc682fd92126, type: 2}
+  - {fileID: 11400000, guid: 6fc878f6551d04240a3aea20b9b98160, type: 2}
   - {fileID: 11400000, guid: 3ceff92762d58cd4687adea9ad7adffb, type: 2}
+  - {fileID: 11400000, guid: 9c19129210aa330499bcfc682fd92126, type: 2}
   - {fileID: 11400000, guid: f737c5b122d006249858b69790eb7e6c, type: 2}
   debugMinigame: {fileID: 0}
