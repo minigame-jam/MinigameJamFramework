@@ -55,10 +55,7 @@ MonoBehaviour:
     m_SceneName: Menu
   pauseMenuPrefab: {fileID: 8337456013330894489, guid: bee38f01a930bff45a56f5cb0d9b88ec, type: 3}
   pointsToWin: 20
-  pointsForFirstPlace: 4
-  pointsForSecondPlace: 2
-  pointsForThirdPlace: 1
-  pointsForFourthPlace: 0
+  pointsPerRank: 04000000020000000100000000000000i
   activePacks:
   - {fileID: 11400000, guid: 3ceff92762d58cd4687adea9ad7adffb, type: 2}
   allPacks:
