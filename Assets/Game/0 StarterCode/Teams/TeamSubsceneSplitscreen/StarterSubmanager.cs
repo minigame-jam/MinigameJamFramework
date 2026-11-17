@@ -9,22 +9,17 @@ namespace Starter.TeamSubsceneSplitscreen {
     /// Communicates with StarterGameManager.
     /// </summary>
     public class StarterSubmanager : MonoBehaviour {
-        public int playerIndex { get; private set; } // TODO: support a list of player indices
-        [SerializeField] MeshRenderer playerMeshRenderer;
-        [SerializeField] List<Material> materials = new();
+        [SerializeField]private Team team;
 
         private void Awake() {
-            playerIndex = StarterGameManager.instance.subscenes.Count;
-            StarterGameManager.instance.subscenes.Add(this);
-        }
-        private void Start() {
-            // TODO: set the material for all pawns in scene
-            // TODO: support pawns connected after subscene is instantiated
-            playerMeshRenderer.material = materials[playerIndex];
+            team = StarterGameManager.instance.AddSubscene(this);
+            foreach(StarterPawn pawn in GetComponentsInChildren<StarterPawn>()) {
+                pawn.team = team;
+            }
         }
 
         public int GetScore() {
-            // Return player score
+            // TODO: Return team score
             return 0;
         }
     }

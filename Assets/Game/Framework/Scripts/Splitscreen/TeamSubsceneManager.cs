@@ -15,6 +15,7 @@ namespace Examples.Splitscreen {
         
         private TeamSplitscreenManager _superManager;
 
+        [HideInInspector]
         public int maxPlayers = 2;
 
         private Dictionary<int, Pawn> _pawnBindings = new();
@@ -47,7 +48,7 @@ namespace Examples.Splitscreen {
        
 
         public bool IsPawnAvailable() {
-            return _pawnBindings.Count < maxPlayers;
+            return _pawnBindings.Count < maxPlayers && _unboundPawns.Count>0;
         }
         public void BindPawn(int playerIndex) {
             if(_unboundPawns.Count==0) {
@@ -55,6 +56,7 @@ namespace Examples.Splitscreen {
                 return;
             }
             Pawn pawn = _unboundPawns[0];
+            _unboundPawns.RemoveAt(0);
             PawnBindingManager.BindPlayerInputToPawn(playerIndex, pawn);
             _pawnBindings.Add(playerIndex, pawn);
         }

@@ -765,6 +765,7 @@ MonoBehaviour:
     width: 0.5
     height: 1
   subsceneOffset: {x: 100, y: 0, z: 0}
+  playersPerSubscene: 0200000002000000i
 --- !u!1 &1752718746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8764341697841427267, guid: a1ba59e2136fabc42aa131726cd96a7a, type: 3}
@@ -1103,10 +1104,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2077558766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79066c366426ddf489b845802d1ec35b, type: 3}
+  m_Script: {fileID: 11500000, guid: 91a8fc7f7e9aa3b489ac5236acf42004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subscenes: []
+  materials:
+  - {fileID: 2100000, guid: bf3477a0adee794419e4ba32e4b76f2e, type: 2}
+  - {fileID: 2100000, guid: 33f3b17ccf2ea4c40ab9e4ecf5d6672f, type: 2}
+  - {fileID: 2100000, guid: 418297e9efd20b14a8234b3de87681eb, type: 2}
+  - {fileID: 2100000, guid: f3bceb9c9d5a07943b5c0a3ca564832c, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
