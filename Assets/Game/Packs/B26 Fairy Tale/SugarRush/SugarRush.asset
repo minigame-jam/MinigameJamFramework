@@ -15,8 +15,8 @@ MonoBehaviour:
   minigameName: Sugar Rush
   thumbnail: {fileID: 7366393777426302075, guid: c684bdb9f350c8848b07c6d44b69eb8e, type: 3}
   scene:
-    m_SceneAsset: {fileID: 102900000, guid: cabb95d2250bc7744b9c41ff07c41827, type: 3}
-    m_SceneName: BasicStarter
+    m_SceneAsset: {fileID: 102900000, guid: 726547b2b2c16c34988465b739af2fb7, type: 3}
+    m_SceneName: SugarRush
   minimumPlayers: 2
   description: 'Players are chosen as Hansels and Witches. Hansels gain points by collecting candies. Witches gain points from hitting the children. Players are ranked based on points gathered. The winning team gains bonus points!!!  '
   controls: '<sprite name="XBOX_LEFT_STICK"> - Move

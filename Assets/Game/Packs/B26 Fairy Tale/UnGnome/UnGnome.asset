@@ -18,9 +18,9 @@ MonoBehaviour:
     m_SceneAsset: {fileID: 102900000, guid: f063c8c7f1af1ca4a8becc7195086551, type: 3}
     m_SceneName: UnGnome
   minimumPlayers: 2
-  description: 'Gnomes: move and jump to survive the evil pool cleaner robot
+  description: 'Gnomes: Move and jump to survive the evil pool cleaner robot until the time runs out
 
-    Robot: blast the gnomes with a jet of water'
+    Robot: Blast as many gnomes as you can with a jet of water'
   controls: '<sprite name="XBOX_LEFT_STICK"> - Move
 
     <sprite name="XBOX_A">/<sprite name="XBOX_B"> - Jump/Shoot'

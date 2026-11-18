@@ -15,8 +15,8 @@ MonoBehaviour:
   minigameName: Marginagility
   thumbnail: {fileID: 21300000, guid: e44780a3bde5a0c4f9eca921ada811bf, type: 3}
   scene:
-    m_SceneAsset: {fileID: 102900000, guid: cabb95d2250bc7744b9c41ff07c41827, type: 3}
-    m_SceneName: BasicStarter
+    m_SceneAsset: {fileID: 102900000, guid: 44e00fa9fb2f4e64ca3b0a8ed9520b2d, type: 3}
+    m_SceneName: Marginagility
   minimumPlayers: 2
   description: 'Move your lance at the right time to knock an opponent''s lance away. Knock the other players off their frogs to score points.
 
