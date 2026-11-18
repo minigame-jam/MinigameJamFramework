@@ -17,10 +17,6 @@ namespace HopPot {
 
         [SerializeField] private int playerNum;
 
-        [SerializeField] private Animator animator;
-
-        private Sprite originalSprite;
-
         public enum FrogState {
             None,
             Grabbed
@@ -51,20 +47,31 @@ namespace HopPot {
         Rigidbody rigidBody;
         SpriteRenderer spriteRenderer;
 
-        [SerializeField] private Sprite[] pickupFrogSprites;
+        private FrogSpritesheet spritesheet;
+        [SerializeField] List<FrogSpritesheet> frogSpritesheets;
 
-        void Start() {
+
+        private void Awake() {
             // Sets the Rigidbody reference
             rigidBody = GetComponent<Rigidbody>();
-
             if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null) {
                 spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-                originalSprite = spriteRenderer.sprite;
             }
+            spritesheet = frogSpritesheets[playerNum-1]; // so its not null before pawn is bound
+        }
+        void Start() {
+            
+
+            
 
             currentClickAmount = escapeClickAmount;
+        }
 
-            animator.Play("FrogIdle", 0, 0f);
+        protected override void OnPawnBound(int index) {
+            gameObject.SetActive(true);
+            spritesheet = frogSpritesheets[index];
+            spriteRenderer.sprite = spritesheet.idle;
+            playerNum = index + 1;
         }
 
         public int getPlayerNum() {
@@ -89,6 +96,7 @@ namespace HopPot {
             if (justJumped && IsGrounded()) {
                 justJumped = false;
                 playSFX("land");
+                spriteRenderer.sprite = spritesheet.idle;
             }
         }
 
@@ -142,7 +150,7 @@ namespace HopPot {
             currentClickAmount = escapeClickAmount;
             transform.SetParent(witch.transform);
             transform.localPosition = new Vector3(0, 1.5f, 0);
-            if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null)  spriteRenderer.sprite = pickupFrogSprites[0];
+            if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null)  spriteRenderer.sprite = spritesheet.captured[0];
             ChangeCurrentState(FrogMovement.FrogState.Grabbed);
 
         }
@@ -151,8 +159,8 @@ namespace HopPot {
 
             while (true) {
                 int randomNumber = Random.Range(0, 4);
-                if (spriteRenderer.sprite != pickupFrogSprites[randomNumber]) {
-                    spriteRenderer.sprite = pickupFrogSprites[randomNumber];
+                if (spriteRenderer.sprite != spritesheet.captured[randomNumber]) {
+                    spriteRenderer.sprite = spritesheet.captured[randomNumber];
                     break;
                 }
             }
@@ -161,7 +169,7 @@ namespace HopPot {
         public void FrogReleased() {
             transform.GetComponentInParent<WitchMovement>().SetHasFrog();
             TimerBar.Instance.ResetTimer();
-            spriteRenderer.sprite = originalSprite;
+            spriteRenderer.sprite = spritesheet.idle;
             ChangeCurrentState(FrogMovement.FrogState.None);
             rigidBody.isKinematic = false;
             transform.localPosition = Vector3.zero;
@@ -208,6 +216,14 @@ namespace HopPot {
         }
 
         public void Jump(Vector2 direction) {
+            spriteRenderer.sprite =  spritesheet.jump;
+            if ((direction.x < 0) != spriteRenderer.flipX) {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
+            if(direction.y > 0) {
+                spriteRenderer.sprite = spritesheet.back;
+            }
+
             rigidBody.linearVelocity = new Vector3(direction.x * moveSpeed, jumpHeight, direction.y * moveSpeed);
             // Jump further up if not moving
             if (moveInput == Vector2.zero) rigidBody.linearVelocity += Vector3.up * moveSpeed;

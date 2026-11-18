@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5334330320976590393}
-  - component: {fileID: 2846605048174828443}
-  - component: {fileID: 7527080343892273912}
   - component: {fileID: 7190075940433383320}
   - component: {fileID: 4278160091502408227}
   - component: {fileID: 92807362064917155}
@@ -40,63 +38,6 @@ Transform:
   - {fileID: 7875012989302371959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2846605048174828443
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710695666677176008}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7527080343892273912
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710695666677176008}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: bf3477a0adee794419e4ba32e4b76f2e, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7190075940433383320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,19 +61,18 @@ MonoBehaviour:
   sfx_land_1: {fileID: 8300000, guid: 49e581496a74b4c63a8d68a3d69be089, type: 3}
   scoreTracker: {fileID: 0}
   playerNum: 1
-  animator: {fileID: 0}
   frogState: 0
   jumpHeight: 4
   moveSpeed: 5
   justJumped: 0
   frogNumber: 1
   tongue: {fileID: 1363342410226845426}
-  escapeClickAmount: 20
-  pickupFrogSprites:
-  - {fileID: 4383460123791238662, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
-  - {fileID: 1926735227, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
-  - {fileID: -1808096300, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
-  - {fileID: -266924095, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+  escapeClickAmount: 12
+  frogSpritesheets:
+  - {fileID: 11400000, guid: f753a547b9d1f74478d56039e8cce121, type: 2}
+  - {fileID: 11400000, guid: 77fc8f6df79dd7449a9cae7b19c9892c, type: 2}
+  - {fileID: 11400000, guid: e3523462ff2fb444f80776f5ff4ce30a, type: 2}
+  - {fileID: 11400000, guid: 12ae0ae95f3783243bab1af7d7d0e31a, type: 2}
 --- !u!54 &4278160091502408227
 Rigidbody:
   m_ObjectHideFlags: 0

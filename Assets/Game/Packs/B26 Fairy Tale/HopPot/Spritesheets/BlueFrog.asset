@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa9b0257e10df242a741e383757778c, type: 3}
+  m_Name: BlueFrog
+  m_EditorClassIdentifier: Assembly-CSharp::FrogSprites
+  idle: {fileID: -7582575624781759568, guid: 07443194bb8344b0c8014a6df490fde3, type: 3}
+  jump: {fileID: -1827180413, guid: 07443194bb8344b0c8014a6df490fde3, type: 3}
+  back: {fileID: 1903782998, guid: 07443194bb8344b0c8014a6df490fde3, type: 3}
+  captured:
+  - {fileID: 4383460123791238662, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+  - {fileID: 1926735227, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+  - {fileID: -1808096300, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}
+  - {fileID: -266924095, guid: 2d4b03dc394a7493d9fab194de4d61e9, type: 3}

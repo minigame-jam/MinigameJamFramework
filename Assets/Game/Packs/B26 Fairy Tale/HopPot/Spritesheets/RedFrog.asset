@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa9b0257e10df242a741e383757778c, type: 3}
+  m_Name: RedFrog
+  m_EditorClassIdentifier: Assembly-CSharp::FrogSprites
+  idle: {fileID: 6109705967597633395, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
+  jump: {fileID: 895335117, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
+  back: {fileID: -831968699, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
+  captured:
+  - {fileID: 90728538683964205, guid: 25ef3d5ab3f274082a49c0df244cdbcd, type: 3}
+  - {fileID: -387082782, guid: 25ef3d5ab3f274082a49c0df244cdbcd, type: 3}
+  - {fileID: -787467647, guid: 25ef3d5ab3f274082a49c0df244cdbcd, type: 3}
+  - {fileID: -1309636744, guid: 25ef3d5ab3f274082a49c0df244cdbcd, type: 3}

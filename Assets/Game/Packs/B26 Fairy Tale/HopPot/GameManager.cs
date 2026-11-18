@@ -29,8 +29,8 @@ namespace HopPot {
             int numPlayers = PlayerManager.GetNumPlayers();
             int witchNum = 1;
             //frog1.checkPresence(numPlayers,witchNum);
-            frog2.checkPresence(numPlayers,witchNum);
-            frog3.checkPresence(numPlayers,witchNum);
+            //frog2.checkPresence(numPlayers,witchNum);
+            //frog3.checkPresence(numPlayers,witchNum);
 
             StartCoroutine(GameTimer());
         }

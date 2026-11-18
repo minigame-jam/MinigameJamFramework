@@ -101,11 +101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5334330320976590393}
-  - component: {fileID: 2846605048174828443}
-  - component: {fileID: 7527080343892273912}
+  - component: {fileID: 7611911262825938307}
   - component: {fileID: 4278160091502408227}
   - component: {fileID: 92807362064917155}
-  - component: {fileID: 7611911262825938307}
   - component: {fileID: 950709051704312958}
   m_Layer: 0
   m_Name: Witch
@@ -130,63 +128,37 @@ Transform:
   - {fileID: 4408983127241405477}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2846605048174828443
-MeshFilter:
+--- !u!114 &7611911262825938307
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4710695666677176008}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7527080343892273912
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710695666677176008}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: bf3477a0adee794419e4ba32e4b76f2e, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ee75195ae4c0249be8d431383d4a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Witch.WitchMovement
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  moveSpeed: 5
+  frogsCaught: 0
+  acceleration: 35
+  maxSpeed: 6.2
+  sfxSource: {fileID: 950709051704312958}
+  sfx_footsteps_1: {fileID: 8300000, guid: fb343ef0cc17049bdb9a63d2680c53cb, type: 3}
+  sfx_footsteps_2: {fileID: 8300000, guid: e3a6f8cf2b0094369af4553d5c86591a, type: 3}
+  sfx_footsteps_3: {fileID: 8300000, guid: 42f098c1898864feca7fc74147e7e20b, type: 3}
+  scoreTracker: {fileID: 0}
+  gm: {fileID: 0}
+  playerNum: 1
+  witchSpritesheets:
+  - {fileID: 11400000, guid: e170fc6b6d2a09a47bd27cd809fb0fe7, type: 2}
+  - {fileID: 11400000, guid: 04c2511579e560c4d80644c210e6adfc, type: 2}
+  - {fileID: 11400000, guid: dd5c6e0490801ae48a48107b69d7c88f, type: 2}
+  - {fileID: 11400000, guid: 66ca18b50ae8a30449d97d68a6e88a07, type: 2}
 --- !u!54 &4278160091502408227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -235,32 +207,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7611911262825938307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710695666677176008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ee75195ae4c0249be8d431383d4a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Witch.WitchMovement
-  onPlayerIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  moveSpeed: 5
-  frogsCaught: 0
-  acceleration: 35
-  maxSpeed: 6.2
-  sfxSource: {fileID: 950709051704312958}
-  sfx_footsteps_1: {fileID: 8300000, guid: fb343ef0cc17049bdb9a63d2680c53cb, type: 3}
-  sfx_footsteps_2: {fileID: 8300000, guid: e3a6f8cf2b0094369af4553d5c86591a, type: 3}
-  sfx_footsteps_3: {fileID: 8300000, guid: 42f098c1898864feca7fc74147e7e20b, type: 3}
-  scoreTracker: {fileID: 0}
-  gm: {fileID: 0}
-  playerNum: 1
 --- !u!82 &950709051704312958
 AudioSource:
   m_ObjectHideFlags: 0

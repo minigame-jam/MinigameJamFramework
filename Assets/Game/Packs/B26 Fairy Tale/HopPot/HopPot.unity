@@ -498,7 +498,6 @@ MonoBehaviour:
   frog1: {fileID: 1514936083}
   frog2: {fileID: 68926537}
   frog3: {fileID: 141973929}
-  frog4: {fileID: 0}
   witch: {fileID: 1850455340}
 --- !u!1 &127615348
 GameObject:
@@ -1674,7 +1673,7 @@ Transform:
   m_GameObject: {fileID: 459535456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.44, z: -0.029}
+  m_LocalPosition: {x: 0, y: 4.93, z: -0.029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1966,7 +1965,11 @@ PrefabInstance:
       objectReference: {fileID: -6800119643774192898, guid: 843d0b3435a1e4d0e9a692dc1f67f823, type: 3}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
-      value: Frog (P3)
+      value: Frog (P4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2013,9 +2016,25 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: backSprite
+      value: 
+      objectReference: {fileID: -694461890, guid: 3a040fd35b78c40f6b82933f66676097, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: jumpSprite
+      value: 
+      objectReference: {fileID: 44824446, guid: 3a040fd35b78c40f6b82933f66676097, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: spritesheet
+      value: 
+      objectReference: {fileID: 11400000, guid: 12ae0ae95f3783243bab1af7d7d0e31a, type: 2}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: scoreTracker
       value: 
       objectReference: {fileID: 310033549}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: tongueSprite
+      value: 
+      objectReference: {fileID: 1873159761, guid: 3a040fd35b78c40f6b82933f66676097, type: 3}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: escapeClickAmount
       value: 12
@@ -2587,7 +2606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 736634831}
-  - component: {fileID: 736634830}
+  - component: {fileID: 736634832}
   m_Layer: 0
   m_Name: PawnManager
   m_TagString: Untagged
@@ -2595,23 +2614,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &736634830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736634829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9dcc3f753457e64d989772249b6d0ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pawns:
-  - {fileID: 1850455340}
-  - {fileID: 1514936083}
-  - {fileID: 68926537}
-  - {fileID: 141973929}
 --- !u!4 &736634831
 Transform:
   m_ObjectHideFlags: 0
@@ -2627,6 +2629,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736634832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736634829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6581aa6b713b1284ca91f32a295c08aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Examples.TeamPawnManager
+  teamAPawns:
+  - {fileID: 1850455340}
+  teamBPawns:
+  - {fileID: 1514936083}
+  - {fileID: 68926537}
+  - {fileID: 141973929}
+  debugMode: 0
+  fillAlternating: 1
 --- !u!1 &756227958
 GameObject:
   m_ObjectHideFlags: 0
@@ -6351,7 +6373,11 @@ PrefabInstance:
       objectReference: {fileID: 7418210340161726709, guid: 3a040fd35b78c40f6b82933f66676097, type: 3}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
-      value: Frog (P2)
+      value: Frog (P3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6398,13 +6424,25 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: backSprite
+      value: 
+      objectReference: {fileID: -831968699, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: jumpSprite
+      value: 
+      objectReference: {fileID: 895335117, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: spritesheet
+      value: 
+      objectReference: {fileID: 11400000, guid: e3523462ff2fb444f80776f5ff4ce30a, type: 2}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: scoreTracker
       value: 
       objectReference: {fileID: 310033549}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
-      propertyPath: escapeClickAmount
-      value: 12
-      objectReference: {fileID: 0}
+      propertyPath: tongueSprite
+      value: 
+      objectReference: {fileID: 1045512677, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: 'pickupFrogSprites.Array.data[0]'
       value: 
@@ -6753,9 +6791,25 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6109705967597633395, guid: 477422abd34c348d08bc4b39f6de7b58, type: 3}
+    - target: {fileID: 3796385759918216266, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.021094799
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796385759918216266, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000014239441
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796385759918216266, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.0261524
+      objectReference: {fileID: 0}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
-      value: Frog (P1)
+      value: Frog (P2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6801,6 +6855,10 @@ PrefabInstance:
       propertyPath: playerNum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
+      propertyPath: spritesheet
+      value: 
+      objectReference: {fileID: 11400000, guid: 77fc8f6df79dd7449a9cae7b19c9892c, type: 2}
     - target: {fileID: 7190075940433383320, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: scoreTracker
       value: 
@@ -9219,6 +9277,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92807362064917155, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
+      propertyPath: m_Center.y
+      value: -0.48
+      objectReference: {fileID: 0}
     - target: {fileID: 4408983127241405477, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -9234,6 +9296,10 @@ PrefabInstance:
     - target: {fileID: 4710695666677176008, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
       propertyPath: m_Name
       value: Witch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710695666677176008, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5334330320976590393, guid: b925b4088ae1fd7468a021ffec4313f5, type: 3}
       propertyPath: m_LocalPosition.x

@@ -27,6 +27,9 @@ namespace HopPot {
             }
 
             Instance = this;
+
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            spritesheet = witchSpritesheets[playerNum-1]; // so its not null before pawn is bound
         }
 
         [SerializeField] float acceleration;
@@ -46,6 +49,18 @@ namespace HopPot {
 
         bool AButtonHeld;
 
+        private WitchSpritesheet spritesheet;
+        private bool isWalkFrameSwapped = false;
+        private SpriteRenderer spriteRenderer;
+        [SerializeField] private List<WitchSpritesheet> witchSpritesheets;
+
+
+        protected override void OnPawnBound(int index) {
+            gameObject.SetActive(true);
+            spritesheet = witchSpritesheets[index];
+            spriteRenderer.sprite = spritesheet.idle;
+            playerNum = index + 1;
+        }
 
         void Start() {
             rigidBody = GetComponent<Rigidbody>();
@@ -134,7 +149,9 @@ namespace HopPot {
         private void GrabFrog(FrogMovement frog) {
             frog.FrogGrabbed(transform.GetComponent<WitchMovement>());
             hasFrog = true;
-
+            if(rigidBody.linearVelocity.magnitude<0.01f) {
+                spriteRenderer.sprite = spritesheet.grabIdle;
+            }
         }
 
         private void Update() {
@@ -192,13 +209,28 @@ namespace HopPot {
             }
 
             if (horizontalVelocity.magnitude > 0.1) {
+                if((horizontalVelocity.x < 0) != spriteRenderer.flipX) {
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
+
                 if (footstepCooldown <= 0) {
                     playSFX("walk");
                     footstepCooldown = Random.Range(footstepTime - 0.02f, footstepTime + 0.02f);
+                    int i = isWalkFrameSwapped ? 0 : 1;
+                    Sprite walkSprite = hasFrog ? spritesheet.grabWalk[i] : spritesheet.walk[i];
+                    if(moveDirection.z>0) {
+                        walkSprite = hasFrog ? spritesheet.grabBackWalk[i] : spritesheet.backWalk[i];
+                    }
+                    isWalkFrameSwapped = !isWalkFrameSwapped;
+                    spriteRenderer.sprite = walkSprite;
                 }
                 else {
                     footstepCooldown -= Time.deltaTime;
                 }
+            }
+
+            if(rigidBody.linearVelocity.magnitude < 0.01f) {
+                spriteRenderer.sprite = hasFrog ? spritesheet.grabIdle : spritesheet.idle;
             }
         }
         void OnDrawGizmos() {
