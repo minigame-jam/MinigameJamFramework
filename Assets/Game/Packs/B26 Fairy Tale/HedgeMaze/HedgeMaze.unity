@@ -3422,8 +3422,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: 0, y: 0, z: 0}
-  round3Start: {x: 0, y: 0, z: 0}
+  round2Start: {x: 5, y: 0.84685, z: -10.5}
+  round3Start: {x: 1.45, y: 0.65, z: -1.64}
   scoreText: {fileID: 192547008}
   pickupSFX: {fileID: 423871331}
   score: 0
@@ -4217,8 +4217,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: 0, y: 0, z: 0}
-  round3Start: {x: 0, y: 0, z: 0}
+  round2Start: {x: -2, y: 0.84685, z: -10.5}
+  round3Start: {x: 1.68, y: 0.65, z: 1.33}
   scoreText: {fileID: 439469121}
   pickupSFX: {fileID: 480543071}
   score: 0
@@ -6416,8 +6416,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: 0, y: 0, z: 0}
-  round3Start: {x: 0, y: 0, z: 0}
+  round2Start: {x: -5, y: 0.84685, z: -10.5}
+  round3Start: {x: -1.56, y: 0.65, z: 1.33}
   scoreText: {fileID: 882562812}
   pickupSFX: {fileID: 779269822}
   score: 0
@@ -12476,8 +12476,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: 0, y: 0, z: 0}
-  round3Start: {x: 0, y: 0, z: 0}
+  round2Start: {x: 2, y: 0.84685, z: -10.5}
+  round3Start: {x: -0.94, y: 0.65, z: -1.64}
   scoreText: {fileID: 1328833323}
   pickupSFX: {fileID: 1466828606}
   score: 0
