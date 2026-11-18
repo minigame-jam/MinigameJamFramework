@@ -113,13 +113,10 @@ namespace Game.Examples {
         /// <param name="offset">Number of players already bound. Ensures even alternation for logic between calls.</param>
         private void AssignTeamToPlayers(List<int> indexList) {
             indexList.Shuffle();
-
-            // weight ensures randomization and that both teams have at least 1 player
-            int weight = 0;
-            if (!(a == 0 && b > 0)) weight = UnityEngine.Random.Range(0, 2);
+            int offset = UnityEngine.Random.Range(0, 2); // ensure random team for list with only one player
 
             for (int i = 0; i < indexList.Count; i++) {
-                if ((i + weight % 2 == 0 || b >= teamBPawns.Count) && a < teamAPawns.Count) {
+                if ((i + offset % 2 == 0 || b >= teamBPawns.Count) && a < teamAPawns.Count) {
                     _assignedPawns.Add(indexList[i], teamAPawns[a]);
                     a++;
                 } else if (b < teamBPawns.Count) {
