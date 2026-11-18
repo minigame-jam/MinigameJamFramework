@@ -24,11 +24,5 @@ MonoBehaviour:
   controls: '<sprite name="XBOX_LEFT_STICK"> - Move
 
     <sprite name="XBOX_A">/<sprite name="XBOX_B"> - Jump/Shoot'
-  credits: 'John Ristuccia
-
-    James Prendergast
-
-    Evan Ricket
-
-    Alex Bavey'
+  credits: John Ristuccia, James Prendergast, Evan Ricket, Alex Bavey
   attributions: 
