@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Packs/B26 Fairy Tale/UnGnome/UnGnome.unity
     guid: f063c8c7f1af1ca4a8becc7195086551
+  - enabled: 1
+    path: Assets/Game/Packs/B26 Fairy Tale/Marginagility/Marginagility.unity
+    guid: 44e00fa9fb2f4e64ca3b0a8ed9520b2d
+  - enabled: 1
+    path: Assets/Game/Packs/B26 Fairy Tale/HopPot/HopPot.unity
+    guid: 2d94555f836982b4aa4ef0dc59968683
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4deba68dccbae794cbe0f671282744cc, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: a6508bcd5c5aaab4f92e8322c9b5cf42, type: 3}
