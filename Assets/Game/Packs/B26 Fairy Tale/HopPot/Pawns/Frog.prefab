@@ -67,7 +67,7 @@ MonoBehaviour:
   justJumped: 0
   frogNumber: 1
   tongue: {fileID: 1363342410226845426}
-  escapeClickAmount: 12
+  escapeClickAmount: 10
   frogSpritesheets:
   - {fileID: 11400000, guid: f753a547b9d1f74478d56039e8cce121, type: 2}
   - {fileID: 11400000, guid: 77fc8f6df79dd7449a9cae7b19c9892c, type: 2}

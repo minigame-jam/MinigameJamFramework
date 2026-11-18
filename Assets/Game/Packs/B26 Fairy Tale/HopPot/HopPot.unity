@@ -1965,7 +1965,7 @@ PrefabInstance:
       objectReference: {fileID: -6800119643774192898, guid: 843d0b3435a1e4d0e9a692dc1f67f823, type: 3}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
-      value: Frog (P4)
+      value: Frog
       objectReference: {fileID: 0}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_IsActive
@@ -6373,7 +6373,7 @@ PrefabInstance:
       objectReference: {fileID: 7418210340161726709, guid: 3a040fd35b78c40f6b82933f66676097, type: 3}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
-      value: Frog (P3)
+      value: Frog
       objectReference: {fileID: 0}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_IsActive
@@ -6805,7 +6805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_Name
-      value: Frog (P2)
+      value: Frog
       objectReference: {fileID: 0}
     - target: {fileID: 4710695666677176008, guid: 676021882cd4a334884f9cfdba876ed1, type: 3}
       propertyPath: m_IsActive
