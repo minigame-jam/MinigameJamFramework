@@ -114,9 +114,12 @@ namespace Game.Examples {
         private void AssignTeamToPlayers(List<int> indexList) {
             indexList.Shuffle();
 
-            int offset = _assignedPawns.Count % 2 != 0 ? 1 : UnityEngine.Random.Range(1, 3);
+            // weight ensures randomization and that both teams have at least 1 player
+            int weight = 0;
+            if (!(a == 0 && b > 0)) weight = UnityEngine.Random.Range(0, 2);
+
             for (int i = 0; i < indexList.Count; i++) {
-                if ((i + offset % 2 == 0 || b >= teamBPawns.Count) && a < teamAPawns.Count) {
+                if ((i + weight % 2 == 0 || b >= teamBPawns.Count) && a < teamAPawns.Count) {
                     _assignedPawns.Add(indexList[i], teamAPawns[a]);
                     a++;
                 } else if (b < teamBPawns.Count) {
