@@ -1243,8 +1243,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
-  m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
+  m_sharedMaterial: {fileID: 7573646293274143404, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3414,7 +3414,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 423871323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28788099efa38d24993c629788de5af9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d345b549b527024b994ca86842ecd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Examples.FumperFalls.FumperFallsPawn
   onPlayerIndexChanged:
@@ -3422,8 +3422,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: 5, y: 0.84685, z: -10.5}
-  round3Start: {x: 1.45, y: 0.65, z: -1.64}
+  round2Start: {x: 0, y: 0, z: 0}
+  round3Start: {x: 0, y: 0, z: 0}
   scoreText: {fileID: 192547008}
   pickupSFX: {fileID: 423871331}
   score: 0
@@ -3585,8 +3585,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
-  m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
+  m_sharedMaterial: {fileID: 7573646293274143404, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4209,7 +4209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 480543063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28788099efa38d24993c629788de5af9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d345b549b527024b994ca86842ecd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HedgeMaze.HedgeMazePawn
   onPlayerIndexChanged:
@@ -4217,8 +4217,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: -2, y: 0.84685, z: -10.5}
-  round3Start: {x: 1.68, y: 0.65, z: 1.33}
+  round2Start: {x: 0, y: 0, z: 0}
+  round3Start: {x: 0, y: 0, z: 0}
   scoreText: {fileID: 439469121}
   pickupSFX: {fileID: 480543071}
   score: 0
@@ -5957,7 +5957,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Finished
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6024,7 +6024,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &666472208
@@ -6408,7 +6408,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 779269814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28788099efa38d24993c629788de5af9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d345b549b527024b994ca86842ecd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HedgeMaze.HedgeMazePawn
   onPlayerIndexChanged:
@@ -6416,8 +6416,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: -5, y: 0.84685, z: -10.5}
-  round3Start: {x: -1.56, y: 0.65, z: 1.33}
+  round2Start: {x: 0, y: 0, z: 0}
+  round3Start: {x: 0, y: 0, z: 0}
   scoreText: {fileID: 882562812}
   pickupSFX: {fileID: 779269822}
   score: 0
@@ -6949,7 +6949,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Round 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7016,7 +7016,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &868067324
@@ -7088,8 +7088,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
-  m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
+  m_sharedMaterial: {fileID: 7573646293274143404, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9584,7 +9584,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247645090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc0c71b21bf6b1479026a6682f62f84, type: 3}
+  m_Script: {fileID: 11500000, guid: fb00f91bd51f7134898ee4ad702da3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roundDuration: 15
@@ -9797,8 +9797,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
-  m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
+  m_sharedMaterial: {fileID: 7573646293274143404, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10724,8 +10724,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
-  m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
+  m_sharedMaterial: {fileID: 7573646293274143404, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11188,7 +11188,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Round 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11255,7 +11255,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1374849653
@@ -12145,7 +12145,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Round 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c65ed7e3071ed8044bf5f387e29abf60, type: 2}
   m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12212,7 +12212,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1449726621
@@ -12468,7 +12468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1466828598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28788099efa38d24993c629788de5af9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d345b549b527024b994ca86842ecd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HedgeMaze.HedgeMazePawn
   onPlayerIndexChanged:
@@ -12476,8 +12476,8 @@ MonoBehaviour:
       m_Calls: []
   speed: 8
   gravity: -50
-  round2Start: {x: 2, y: 0.84685, z: -10.5}
-  round3Start: {x: -0.94, y: 0.65, z: -1.64}
+  round2Start: {x: 0, y: 0, z: 0}
+  round3Start: {x: 0, y: 0, z: 0}
   scoreText: {fileID: 1328833323}
   pickupSFX: {fileID: 1466828606}
   score: 0
