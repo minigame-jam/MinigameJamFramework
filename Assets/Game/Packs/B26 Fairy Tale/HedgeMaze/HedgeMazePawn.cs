@@ -45,9 +45,9 @@ namespace HedgeMaze {
 
         public void StartRound2() {
             _rigidbody.isKinematic = true;
+            _rigidbody.isKinematic = false;
             _rigidbody.linearVelocity = new Vector3();
             _rigidbody.angularVelocity = new Vector3();
-            _rigidbody.isKinematic = false;
             transform.position = round2Start;
         }
 
