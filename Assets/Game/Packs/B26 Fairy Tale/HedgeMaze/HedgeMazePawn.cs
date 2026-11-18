@@ -44,18 +44,16 @@ namespace HedgeMaze {
         }
 
         public void StartRound2() {
-            _rigidbody.isKinematic = true;
-            _rigidbody.isKinematic = false;
-            _rigidbody.linearVelocity = new Vector3();
-            _rigidbody.angularVelocity = new Vector3();
+            _rigidbody.linearVelocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.Sleep();
             transform.position = round2Start;
         }
 
         public void StartRound3() {
-            _rigidbody.isKinematic = true;
-            _rigidbody.linearVelocity = new Vector3();
-            _rigidbody.angularVelocity = new Vector3();
-            _rigidbody.isKinematic = false;
+            _rigidbody.linearVelocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.Sleep();
             transform.position = round3Start;
         }
 
