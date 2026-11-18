@@ -21,6 +21,8 @@ namespace HopPot {
         [SerializeField] private FrogMovement frog3;
         [SerializeField] private WitchMovement witch;
 
+        [SerializeField] private GameObject readyText;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start() {
             _ranking = new();
@@ -41,8 +43,10 @@ namespace HopPot {
             WitchMovement.isPawnInputEnabled = false;
 
             // Maybe some ckind of countdown animation
+            readyText.SetActive(true);
 
             yield return new WaitForSeconds(startTimer);
+            readyText.SetActive(false);
 
             FrogMovement.isPawnInputEnabled = true;
             WitchMovement.isPawnInputEnabled = true;
