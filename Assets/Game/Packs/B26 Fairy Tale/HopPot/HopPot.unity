@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07879f200c9fc224fbd5f92ab84366e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Frog.GameManager
-  startTimer: 2
+  startTimer: 1.5
   duration: 60
   endTimer: 2
   timer: 0
