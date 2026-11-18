@@ -95,6 +95,7 @@ namespace Game.MinigameFramework.Scripts.Framework.PlayerInfo {
         public static void SetMinigameActionMap() {
             _currentActionMap = "Minigame";
             foreach (Player player in players) {
+                if (player.playerInput == null) continue;
                 player.playerInput.SwitchCurrentActionMap("Minigame");
             }
         }
