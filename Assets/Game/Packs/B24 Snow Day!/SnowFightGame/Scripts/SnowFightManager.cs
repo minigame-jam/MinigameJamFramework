@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.MinigameFramework.Scripts.Framework.Input;
 using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
+using TMPro;
 using UnityEngine;
 
 namespace SnowDay.SnowFight {
@@ -14,6 +15,11 @@ namespace SnowDay.SnowFight {
         [SerializeField] Animator cameraAnimator;
         [SerializeField] private AnimationClip startAnimation;
         [SerializeField] private AnimationClip endAnimation;
+        [SerializeField] private GameObject crossUI;
+
+        [SerializeField] private float timer = 60;
+        [SerializeField] private TextMeshProUGUI timerText;
+        private bool isGameOver = false;
 
 
 
@@ -31,7 +37,19 @@ namespace SnowDay.SnowFight {
 
             worldCamera.gameObject.SetActive(false);
             foreach (Camera camera in playerCameras) camera.gameObject.SetActive(true);
+            crossUI.gameObject.SetActive(true);
             foreach (SnowmanController pawn in pawns) pawn.isPawnInputEnabled = true;
+            StartCoroutine(GameTimer());
+        }
+        private IEnumerator GameTimer() {
+            float t = timer;
+            timerText.text = t.ToString("F0");
+            while (t>0) {
+                yield return null;
+                t -= Time.deltaTime;
+                timerText.text = t.ToString("F0");
+            }
+            StopMinigame();
         }
 
         public void KillPlayer(Pawn pawn) {
@@ -52,12 +70,15 @@ namespace SnowDay.SnowFight {
         }
 
         IEnumerator EndMinigame() {
+            if (isGameOver) yield return null;
+            isGameOver = true;
             yield return new WaitForSeconds(1);
             worldCamera.gameObject.SetActive(true);
             foreach (Camera camera in playerCameras) {
                 if (camera == null) continue;
                 camera.gameObject.SetActive(false);
             }
+            crossUI.gameObject.SetActive(false);
             cameraAnimator.Play(endAnimation.name);
             yield return new WaitForSeconds(endAnimation.length);
             yield return new WaitForSeconds(1);
