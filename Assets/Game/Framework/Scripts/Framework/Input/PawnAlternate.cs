@@ -24,16 +24,16 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
                     OnButtonB();
                     break;
                 case PawnAction.ButtonX:
-                    OnActionX();
+                    OnButtonX();
                     break;
                 case PawnAction.ButtonY:
-                    OnActionY();
+                    OnButtonY();
                     break;
                 case PawnAction.ButtonL:
-                    OnActionL();
+                    OnButtonL();
                     break;
                 case PawnAction.ButtonR:
-                    OnActionR();
+                    OnButtonR();
                     break;
             }
         }
@@ -68,13 +68,13 @@ namespace Game.MinigameFramework.Scripts.Framework.Input {
         protected virtual void OnActionAReleased() { }
         protected virtual void OnButtonB() { }
         protected virtual void OnButtonBReleased() { }
-        protected virtual void OnActionX() { }
+        protected virtual void OnButtonX() { }
         protected virtual void OnActionXReleased() { }
-        protected virtual void OnActionY() { }
+        protected virtual void OnButtonY() { }
         protected virtual void OnActionYReleased() { }
-        protected virtual void OnActionL() { }
+        protected virtual void OnButtonL() { }
         protected virtual void OnActionLReleased() { }
-        protected virtual void OnActionR() { }
+        protected virtual void OnButtonR() { }
         protected virtual void OnActionRReleased() { }
     }
 }
