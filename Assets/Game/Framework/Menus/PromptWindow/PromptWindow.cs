@@ -5,6 +5,7 @@ using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
@@ -27,7 +28,13 @@ namespace Game.MinigameFramework.Menus.PromptWindow {
             PlayerManager.SetMenuActionMap();
             SetDefaultSelectedButton();   
         }
-        
+
+        private void FixedUpdate() {
+            if(EventSystem.current.currentSelectedGameObject == null) {
+                SetDefaultSelectedButton();
+            }
+        }
+
         public void SetText(string str) {
             foreach (TextMeshProUGUI text in textObjs) {
                 text.text = str;

@@ -572,8 +572,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FAIRYTALE Party
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
-  m_sharedMaterial: {fileID: 7573646293274143404, guid: 10712b944d517f141ae457ff6dc30f82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5525395c80085c040845a481b95f41a0, type: 2}
+  m_sharedMaterial: {fileID: 7573646293274143404, guid: 5525395c80085c040845a481b95f41a0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
