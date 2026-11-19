@@ -1,6 +1,7 @@
+using Game.MinigameFramework.Scripts.Framework.Input;
+using SnowDay.Snowfort;
 using System.Collections;
 using System.Collections.Generic;
-using Game.MinigameFramework.Scripts.Framework.Input;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,8 @@ namespace SnowDay.SnowFight {
         [SerializeField] private float moveSpeed = 15f;
         [SerializeField] private Rigidbody rb;
         private Vector2 moveInputValue;
+
+        public bool isPawnInputEnabled = true;
 
         // Camera Rotation
         [SerializeField] private float sensitivityX = 1f;
@@ -33,8 +36,13 @@ namespace SnowDay.SnowFight {
             rb = GetComponent<Rigidbody>();
         }
 
+        private void Start() {
+            rotationX = transform.localEulerAngles.y;
+            rotationY = -transform.localEulerAngles.x;
+        }
+
         protected override void OnActionPressed(InputAction.CallbackContext context) {
-            Debug.Log(context.action.name);
+            if (!isPawnInputEnabled) return;
             switch (context.action.name) {
                 case "Move":
                     moveInputValue = context.ReadValue<Vector2>();
@@ -55,48 +63,32 @@ namespace SnowDay.SnowFight {
             rotationX += lookInputValue.x * sensitivityX;
             rotationY += lookInputValue.y * sensitivityY;
 
-            rotationY = Mathf.Clamp(rotationY, -90f, 90f);
+            rotationY = Mathf.Clamp(rotationY, -45, 45);
 
             transform.localRotation = Quaternion.Euler(-rotationY, rotationX, 0f);
         }
 
         private void Move() {
-            Vector3 movement = new Vector3(moveInputValue.x, 0, moveInputValue.y);
+            //Vector3 movement = new Vector3(moveInputValue.x, 0, moveInputValue.y);
+            Vector3 movement =transform.forward*moveInputValue.y + transform.right * moveInputValue.x;
+            movement.y = 0;
             rb.linearVelocity = movement * moveSpeed;
         }
 
         private void LaunchSnowball() {
-            GameObject snowball = Instantiate(snowballPrefab, firePoint.position, firePoint.rotation);
-            snowball.GetComponent<Snowball>().Shoot(transform.forward);
-        }
-
-        IEnumerator Respawn() {
-            lives--;
-            // Disable player controls and visibility
-            GetComponent<Renderer>().enabled = false;
-            GetComponent<Collider>().enabled = false;
-            playerText.alpha = 0;
-
-            int randomSpawnX = Random.Range(-15, 18);
-            int randomSpawnZ = Random.Range(-25, 11);
-
-            if (lives > 0) {
-                yield return new WaitForSeconds(1f);
-                transform.position = new Vector3(randomSpawnX, 4, randomSpawnZ);
-                health = 100;
-                isAlive = true;
-
-                // Re-enable player controls and visibility
-                GetComponent<Renderer>().enabled = true;
-                GetComponent<Collider>().enabled = true;
-                playerText.alpha = 1;
-            }
+            Snowball snowball = Instantiate(snowballPrefab, firePoint.position, firePoint.rotation).GetComponent<Snowball>();
+            snowball.Shoot(transform.forward);
+            snowball.player = gameObject;
         }
 
         public void TakeDamage(int damage) {
             health -= damage;
-            if (health <= 0) {
-                StartCoroutine(Respawn());
+            GetComponent<HitJiggle>().Jiggle();
+            if (health <= 0 && isAlive) {
+                lives--;
+                if(lives < 1) {
+                    Die();
+                }
             }
         }
 
@@ -113,9 +105,15 @@ namespace SnowDay.SnowFight {
             Move();
         }
 
-        internal void Die() {
-            SnowFightManager snowFightManager = FindObjectOfType<SnowFightManager>();
+        private void Die() {
+            isAlive = false;
+            SnowFightManager snowFightManager = FindAnyObjectByType<SnowFightManager>();
             snowFightManager.KillPlayer(this);
+            StartCoroutine(DestroySelf());
+        }
+        IEnumerator DestroySelf() {
+            yield return new WaitForSeconds(1f);
+            Destroy(gameObject);
         }
     }
 }

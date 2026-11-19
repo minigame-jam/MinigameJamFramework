@@ -2,14 +2,12 @@ using UnityEngine;
 
 namespace SnowDay.SnowFight {
     public class Billboard : MonoBehaviour {
-        public Camera mainCamera;
+        void OnEnable() => Camera.onPreRender += HandlePreRender;
+        void OnDisable() => Camera.onPreRender -= HandlePreRender;
 
-        private void LateUpdate() {
-            // Make the object face the camera
-            if (mainCamera != null) {
-                transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
-                    mainCamera.transform.rotation * Vector3.up);
-            }
+        private void HandlePreRender(Camera camera) {
+            transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward,
+                    camera.transform.rotation * Vector3.up);
         }
     }
 }
