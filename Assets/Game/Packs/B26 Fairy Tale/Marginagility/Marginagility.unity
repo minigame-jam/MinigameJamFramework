@@ -1044,8 +1044,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423871329}
-  - component: {fileID: 423871330}
   - component: {fileID: 423871331}
+  - component: {fileID: 423871332}
   m_Layer: 0
   m_Name: Pawn (P4)
   m_TagString: Untagged
@@ -1073,50 +1073,6 @@ Transform:
   - {fileID: 1778478648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &423871330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423871323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPlayerIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _speed: 3
-  _direction: -1
-  _jumpRate: 6
-  _interpRate: 0.05
-  _lanceHitboxTransform: {fileID: 1426174801}
-  _lanceTransform: {fileID: 423534600}
-  _lanceSpriteTransform: {fileID: 1929497848}
-  _rabbitTransform: {fileID: 1235831676}
-  _rabbitSpriteTransform: {fileID: 672227085}
-  _arrowSpriteTransform: {fileID: 8700097}
-  _frogTransform: {fileID: 1263737984}
-  _frogSpriteTransform: {fileID: 1588506716}
-  _lanceTargetTransform: {fileID: 1778478648}
-  _rabbitTargetTransform: {fileID: 1639620220}
-  _frogTargetTransform: {fileID: 849850901}
-  _lane: 0
-  _hasLance: 1
-  _canDisarm: 0
-  _lanceLane: 0
-  _isRiding: 1
-  _canRespawn: 0
-  _frogSprite: {fileID: 1588506717}
-  _rabbitSprite: {fileID: 672227086}
-  _lanceSprite: {fileID: 1929497847}
-  _arrowSprite: {fileID: 8700098}
-  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
-  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
-  _moveDelay: 0.33
-  _moveLanceDelay: 0.33
 --- !u!61 &423871331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1163,6 +1119,50 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &423871332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423871323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5016fba3b1f129a4eb26a3dee1dc2205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Marginagility.MarginagilityPawn
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _speed: 3
+  _direction: 1
+  _jumpRate: 6
+  _interpRate: 0.05
+  _lanceHitboxTransform: {fileID: 1426174801}
+  _lanceTransform: {fileID: 423534600}
+  _lanceSpriteTransform: {fileID: 1929497848}
+  _rabbitTransform: {fileID: 1235831676}
+  _rabbitSpriteTransform: {fileID: 672227085}
+  _arrowSpriteTransform: {fileID: 8700097}
+  _frogTransform: {fileID: 1263737984}
+  _frogSpriteTransform: {fileID: 1588506716}
+  _lanceTargetTransform: {fileID: 1778478648}
+  _rabbitTargetTransform: {fileID: 1639620220}
+  _frogTargetTransform: {fileID: 849850901}
+  _lane: 1
+  _hasLance: 1
+  _canDisarm: 0
+  _lanceLane: 1
+  _isRiding: 1
+  _canRespawn: 0
+  _frogSprite: {fileID: 1588506717}
+  _rabbitSprite: {fileID: 672227086}
+  _lanceSprite: {fileID: 1929497847}
+  _arrowSprite: {fileID: 8700098}
+  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
+  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
+  _moveDelay: 0.33
+  _moveLanceDelay: 0.33
 --- !u!1 &427721753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,8 +1296,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 480543069}
-  - component: {fileID: 480543070}
   - component: {fileID: 480543071}
+  - component: {fileID: 480543072}
   m_Layer: 0
   m_Name: Pawn (P2)
   m_TagString: Untagged
@@ -1325,50 +1325,6 @@ Transform:
   - {fileID: 1380382574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &480543070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480543063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPlayerIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _speed: 3
-  _direction: -1
-  _jumpRate: 6
-  _interpRate: 0.05
-  _lanceHitboxTransform: {fileID: 1054244312}
-  _lanceTransform: {fileID: 1222140198}
-  _lanceSpriteTransform: {fileID: 2006754464}
-  _rabbitTransform: {fileID: 283542069}
-  _rabbitSpriteTransform: {fileID: 1179460046}
-  _arrowSpriteTransform: {fileID: 1780566777}
-  _frogTransform: {fileID: 1628658994}
-  _frogSpriteTransform: {fileID: 1938110311}
-  _lanceTargetTransform: {fileID: 1380382574}
-  _rabbitTargetTransform: {fileID: 861359045}
-  _frogTargetTransform: {fileID: 103502484}
-  _lane: 1
-  _hasLance: 1
-  _canDisarm: 0
-  _lanceLane: 1
-  _isRiding: 1
-  _canRespawn: 0
-  _frogSprite: {fileID: 1938110312}
-  _rabbitSprite: {fileID: 1179460047}
-  _lanceSprite: {fileID: 2006754463}
-  _arrowSprite: {fileID: 1780566778}
-  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
-  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
-  _moveDelay: 0.33
-  _moveLanceDelay: 0.33
 --- !u!61 &480543071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1415,6 +1371,50 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &480543072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480543063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5016fba3b1f129a4eb26a3dee1dc2205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Marginagility.MarginagilityPawn
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _speed: 3
+  _direction: 1
+  _jumpRate: 6
+  _interpRate: 0.05
+  _lanceHitboxTransform: {fileID: 1054244312}
+  _lanceTransform: {fileID: 1222140198}
+  _lanceSpriteTransform: {fileID: 2006754464}
+  _rabbitTransform: {fileID: 283542069}
+  _rabbitSpriteTransform: {fileID: 1179460046}
+  _arrowSpriteTransform: {fileID: 1780566777}
+  _frogTransform: {fileID: 1628658994}
+  _frogSpriteTransform: {fileID: 1938110311}
+  _lanceTargetTransform: {fileID: 1380382574}
+  _rabbitTargetTransform: {fileID: 861359045}
+  _frogTargetTransform: {fileID: 103502484}
+  _lane: 0
+  _hasLance: 1
+  _canDisarm: 0
+  _lanceLane: 0
+  _isRiding: 1
+  _canRespawn: 0
+  _frogSprite: {fileID: 1938110312}
+  _rabbitSprite: {fileID: 1179460047}
+  _lanceSprite: {fileID: 2006754463}
+  _arrowSprite: {fileID: 1780566778}
+  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
+  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
+  _moveDelay: 0.33
+  _moveLanceDelay: 0.33
 --- !u!1 &486368478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,10 +2205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawns:
-  - {fileID: 779269821}
-  - {fileID: 480543070}
-  - {fileID: 1466828605}
-  - {fileID: 423871330}
+  - {fileID: 779269823}
+  - {fileID: 480543072}
+  - {fileID: 1466828607}
+  - {fileID: 423871332}
 --- !u!4 &736634831
 Transform:
   m_ObjectHideFlags: 0
@@ -2264,8 +2264,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 779269820}
-  - component: {fileID: 779269821}
   - component: {fileID: 779269822}
+  - component: {fileID: 779269823}
   m_Layer: 0
   m_Name: Pawn (P1)
   m_TagString: Untagged
@@ -2293,50 +2293,6 @@ Transform:
   - {fileID: 755164518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &779269821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779269814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPlayerIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _speed: 3
-  _direction: 1
-  _jumpRate: 6
-  _interpRate: 0.05
-  _lanceHitboxTransform: {fileID: 1739010002}
-  _lanceTransform: {fileID: 1313356000}
-  _lanceSpriteTransform: {fileID: 52293638}
-  _rabbitTransform: {fileID: 463570243}
-  _rabbitSpriteTransform: {fileID: 833449656}
-  _arrowSpriteTransform: {fileID: 2132928246}
-  _frogTransform: {fileID: 573836164}
-  _frogSpriteTransform: {fileID: 1909155839}
-  _lanceTargetTransform: {fileID: 755164518}
-  _rabbitTargetTransform: {fileID: 662670853}
-  _frogTargetTransform: {fileID: 1748252476}
-  _lane: 1
-  _hasLance: 1
-  _canDisarm: 0
-  _lanceLane: 1
-  _isRiding: 1
-  _canRespawn: 0
-  _frogSprite: {fileID: 1909155840}
-  _rabbitSprite: {fileID: 833449657}
-  _lanceSprite: {fileID: 52293639}
-  _arrowSprite: {fileID: 2132928247}
-  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
-  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
-  _moveDelay: 0.33
-  _moveLanceDelay: 0.33
 --- !u!61 &779269822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2383,6 +2339,50 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &779269823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779269814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5016fba3b1f129a4eb26a3dee1dc2205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Marginagility.MarginagilityPawn
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _speed: 3
+  _direction: 1
+  _jumpRate: 6
+  _interpRate: 0.05
+  _lanceHitboxTransform: {fileID: 1739010002}
+  _lanceTransform: {fileID: 1313356000}
+  _lanceSpriteTransform: {fileID: 52293638}
+  _rabbitTransform: {fileID: 463570243}
+  _rabbitSpriteTransform: {fileID: 833449656}
+  _arrowSpriteTransform: {fileID: 2132928246}
+  _frogTransform: {fileID: 573836164}
+  _frogSpriteTransform: {fileID: 1909155839}
+  _lanceTargetTransform: {fileID: 755164518}
+  _rabbitTargetTransform: {fileID: 662670853}
+  _frogTargetTransform: {fileID: 1748252476}
+  _lane: 0
+  _hasLance: 1
+  _canDisarm: 0
+  _lanceLane: 0
+  _isRiding: 1
+  _canRespawn: 0
+  _frogSprite: {fileID: 1909155840}
+  _rabbitSprite: {fileID: 833449657}
+  _lanceSprite: {fileID: 52293639}
+  _arrowSprite: {fileID: 2132928247}
+  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
+  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
+  _moveDelay: 0.33
+  _moveLanceDelay: 0.33
 --- !u!1 &833449655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,8 +2693,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 930499749}
-  - component: {fileID: 930499750}
   - component: {fileID: 930499751}
+  - component: {fileID: 930499752}
   m_Layer: 0
   m_Name: StarterGameManager
   m_TagString: Untagged
@@ -2717,24 +2717,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &930499750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930499748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4e62a43049cec4f8a65a2e1aa1dd4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intro: {fileID: 8300000, guid: c516a5f0c0f1aa541b405b189b219eca, type: 3}
-  outro: {fileID: 8300000, guid: 628eec19493c4a0418736da9d9b935b2, type: 3}
-  playerHit: {fileID: 8300000, guid: 685814cdff79c7e4286896ef7e35a691, type: 3}
-  lanceHit: {fileID: 8300000, guid: b990802e022a1f342a2bf16904df9f5f, type: 3}
-  respawn: {fileID: 8300000, guid: 91f3c8c88b126b244b3a2048287b9b48, type: 3}
-  audioPlayer: {fileID: 2773814193095757587, guid: 5da173192ffdc284fbebea35cc141776, type: 3}
 --- !u!82 &930499751
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2832,6 +2814,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &930499752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930499748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430b6de34ddbcb745835ff4b0fea3f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Marginagility.MarginagilityGameManager
+  intro: {fileID: 8300000, guid: c516a5f0c0f1aa541b405b189b219eca, type: 3}
+  outro: {fileID: 8300000, guid: 628eec19493c4a0418736da9d9b935b2, type: 3}
+  playerHit: {fileID: 8300000, guid: 685814cdff79c7e4286896ef7e35a691, type: 3}
+  lanceHit: {fileID: 8300000, guid: b990802e022a1f342a2bf16904df9f5f, type: 3}
+  respawn: {fileID: 8300000, guid: 91f3c8c88b126b244b3a2048287b9b48, type: 3}
+  audioPlayer: {fileID: 2773814193095757587, guid: 5da173192ffdc284fbebea35cc141776, type: 3}
 --- !u!1 &947640853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,7 +3087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a19dd12e6ec1d4080a2a0d754c9881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lance
-  _owner: {fileID: 480543070}
+  _owner: {fileID: 0}
 --- !u!1 &1101967653
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,7 +3981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a19dd12e6ec1d4080a2a0d754c9881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lance
-  _owner: {fileID: 423871330}
+  _owner: {fileID: 0}
 --- !u!1 &1466828598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,8 +3991,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466828604}
-  - component: {fileID: 1466828605}
   - component: {fileID: 1466828606}
+  - component: {fileID: 1466828607}
   m_Layer: 0
   m_Name: Pawn (P3)
   m_TagString: Untagged
@@ -4020,50 +4020,6 @@ Transform:
   - {fileID: 528613636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1466828605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466828598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42552640ec044ff448952740db10a8ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPlayerIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _speed: 3
-  _direction: 1
-  _jumpRate: 6
-  _interpRate: 0.05
-  _lanceHitboxTransform: {fileID: 1581021478}
-  _lanceTransform: {fileID: 117115909}
-  _lanceSpriteTransform: {fileID: 1177680921}
-  _rabbitTransform: {fileID: 869057088}
-  _rabbitSpriteTransform: {fileID: 1831930213}
-  _arrowSpriteTransform: {fileID: 427721754}
-  _frogTransform: {fileID: 569930763}
-  _frogSpriteTransform: {fileID: 516822858}
-  _lanceTargetTransform: {fileID: 528613636}
-  _rabbitTargetTransform: {fileID: 363233533}
-  _frogTargetTransform: {fileID: 2012865365}
-  _lane: 0
-  _hasLance: 1
-  _canDisarm: 0
-  _lanceLane: 0
-  _isRiding: 1
-  _canRespawn: 0
-  _frogSprite: {fileID: 516822859}
-  _rabbitSprite: {fileID: 1831930214}
-  _lanceSprite: {fileID: 1177680920}
-  _arrowSprite: {fileID: 427721755}
-  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
-  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
-  _moveDelay: 0.33
-  _moveLanceDelay: 0.33
 --- !u!61 &1466828606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4110,6 +4066,50 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1466828607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466828598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5016fba3b1f129a4eb26a3dee1dc2205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Marginagility.MarginagilityPawn
+  onPlayerIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _speed: 3
+  _direction: 1
+  _jumpRate: 6
+  _interpRate: 0.05
+  _lanceHitboxTransform: {fileID: 1581021478}
+  _lanceTransform: {fileID: 117115909}
+  _lanceSpriteTransform: {fileID: 1177680921}
+  _rabbitTransform: {fileID: 869057088}
+  _rabbitSpriteTransform: {fileID: 1831930213}
+  _arrowSpriteTransform: {fileID: 427721754}
+  _frogTransform: {fileID: 569930763}
+  _frogSpriteTransform: {fileID: 516822858}
+  _lanceTargetTransform: {fileID: 528613636}
+  _rabbitTargetTransform: {fileID: 363233533}
+  _frogTargetTransform: {fileID: 2012865365}
+  _lane: 1
+  _hasLance: 1
+  _canDisarm: 0
+  _lanceLane: 1
+  _isRiding: 1
+  _canRespawn: 0
+  _frogSprite: {fileID: 516822859}
+  _rabbitSprite: {fileID: 1831930214}
+  _lanceSprite: {fileID: 1177680920}
+  _arrowSprite: {fileID: 427721755}
+  _rabbitPrefab: {fileID: 592832055822202184, guid: ce5cacaef803b484da76b5b17bd9c038, type: 3}
+  _lancePrefab: {fileID: 592832055822202184, guid: e78165d889e718a4da57c638274e81d3, type: 3}
+  _moveDelay: 0.33
+  _moveLanceDelay: 0.33
 --- !u!1 &1530569957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4263,7 +4263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a19dd12e6ec1d4080a2a0d754c9881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lance
-  _owner: {fileID: 1466828605}
+  _owner: {fileID: 0}
 --- !u!1 &1588506715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,7 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a19dd12e6ec1d4080a2a0d754c9881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lance
-  _owner: {fileID: 779269821}
+  _owner: {fileID: 0}
 --- !u!1 &1748252475
 GameObject:
   m_ObjectHideFlags: 0
