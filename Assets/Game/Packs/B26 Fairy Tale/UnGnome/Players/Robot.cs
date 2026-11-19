@@ -1,7 +1,6 @@
 using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
 using System.Timers;
 using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
 
 namespace GnomeSpace {
