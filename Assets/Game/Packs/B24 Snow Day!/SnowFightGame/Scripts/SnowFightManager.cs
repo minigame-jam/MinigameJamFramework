@@ -72,7 +72,7 @@ namespace SnowDay.SnowFight {
         IEnumerator EndMinigame() {
             if (isGameOver) yield return null;
             isGameOver = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             worldCamera.gameObject.SetActive(true);
             foreach (Camera camera in playerCameras) {
                 if (camera == null) continue;
