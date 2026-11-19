@@ -9,8 +9,29 @@ namespace SnowDay.SnowFight {
         MinigameManager.Ranking ranking = new();
         private int deaths = 0;
 
+        [SerializeField] Camera worldCamera;
+        public List<Camera> playerCameras;
+        [SerializeField] Animator cameraAnimator;
+        [SerializeField] private AnimationClip startAnimation;
+        [SerializeField] private AnimationClip endAnimation;
+
+
+
         private void Start() {
             ranking.SetAllPlayersToRank(1);
+            StartCoroutine(IntroCutscene());
+        }
+
+        private IEnumerator IntroCutscene() {
+            SnowmanController[] pawns = FindObjectsByType<SnowmanController>();
+            foreach (SnowmanController pawn in pawns) pawn.isPawnInputEnabled = false;
+
+            cameraAnimator.Play(startAnimation.name);
+            yield return new WaitForSeconds(startAnimation.length);
+
+            worldCamera.gameObject.SetActive(false);
+            foreach (Camera camera in playerCameras) camera.gameObject.SetActive(true);
+            foreach (SnowmanController pawn in pawns) pawn.isPawnInputEnabled = true;
         }
 
         public void KillPlayer(Pawn pawn) {
@@ -21,7 +42,7 @@ namespace SnowDay.SnowFight {
             }
             deaths++; // also count deaths for pawns not bound to a player
 
-            if (deaths == 3 || Debug_AreAllBoundPlayersDead()) {
+            if (deaths == 3) {
                 StopMinigame();
             }
         }
@@ -31,16 +52,16 @@ namespace SnowDay.SnowFight {
         }
 
         IEnumerator EndMinigame() {
-            yield return new WaitForSeconds(2);
-            MinigameManager.instance.EndMinigame(ranking);
-        }
-
-
-        private bool Debug_AreAllBoundPlayersDead() {
-            for (int i = 0; i < PlayerManager.GetNumPlayers(); i++) {
-                if (ranking[i] == 1) return false;
+            yield return new WaitForSeconds(1);
+            worldCamera.gameObject.SetActive(true);
+            foreach (Camera camera in playerCameras) {
+                if (camera == null) continue;
+                camera.gameObject.SetActive(false);
             }
-            return true;
+            cameraAnimator.Play(endAnimation.name);
+            yield return new WaitForSeconds(endAnimation.length);
+            yield return new WaitForSeconds(1);
+            MinigameManager.instance.EndMinigame(ranking);
         }
     }
 }

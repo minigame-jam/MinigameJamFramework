@@ -1,3 +1,4 @@
+using Game.MinigameFramework.Scripts.Tags;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace SnowDay.SnowFight {
         private Rigidbody rb;
         [SerializeField] private float speedX = 10f;
         [SerializeField] private float speedY = 5f;
-        [SerializeField] private GameObject player;
+        public GameObject player;
 
         private void Awake() {
             rb = GetComponent<Rigidbody>();
@@ -18,16 +19,18 @@ namespace SnowDay.SnowFight {
             rb.AddForce(Vector3.up * speedY, ForceMode.Impulse);
         }
 
-        private void OnCollisionEnter(Collision other) {
-            if (other.gameObject.CompareTag("Player")) {
-                SnowmanController playerController = other.gameObject.GetComponent<SnowmanController>();
+        private void OnTriggerEnter(UnityEngine.Collider other) {
+            if (other.CompareTag("Player")) {
+                SnowmanController playerController = other.gameObject.GetComponentInParent<SnowmanController>();
                 if (playerController != null) {
-                    playerController.TakeDamage(10);
-                    if (playerController.health <= 0 && playerController.lives <= 0) {
-                        playerController.Die();
-                    }
+                    if (player == playerController.gameObject) return;
+                    playerController.TakeDamage(1);
                 }
-
+                Destroy(gameObject);
+            }
+        }
+        private void OnCollisionEnter(Collision collision) {
+            if(collision.gameObject.HasCustomTag("Ground")) {
                 Destroy(gameObject);
             }
         }
