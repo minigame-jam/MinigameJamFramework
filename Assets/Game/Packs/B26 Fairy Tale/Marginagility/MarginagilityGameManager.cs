@@ -22,7 +22,7 @@ namespace Marginagility {
         bool _gameOver;
 
         void Start() {
-            _timer = 60;
+            _timer = 45;
             FindAnyObjectByType<ScoreDisplay>().UpdateTimer(_timer);
             Instantiate(audioPlayer).GetComponent<Sound>().PlaySound(intro);
             outroPlaying = false;

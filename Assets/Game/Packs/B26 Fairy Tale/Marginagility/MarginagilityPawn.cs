@@ -74,7 +74,7 @@ namespace Marginagility {
             float timer = FindAnyObjectByType<MarginagilityGameManager>().GetTimer();
             _speed = (Mathf.Sin(timer * _jumpRate) + 1) * 1.5f;
 
-            if (!_scoreInitialized) {
+            if (!_scoreInitialized && playerIndex!=-1) {
                 FindAnyObjectByType<ScoreDisplay>().SetScore(playerIndex, 0, true);
                 _scoreInitialized = true;
             }
