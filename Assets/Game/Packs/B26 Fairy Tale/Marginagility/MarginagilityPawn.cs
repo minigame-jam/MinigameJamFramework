@@ -85,8 +85,6 @@ namespace Marginagility {
                 Destroy(_rabbitTransform.gameObject);
                 Destroy(_frogTransform.gameObject);
             }
-
-            transform.localScale = new Vector3(_direction, 1.0f, 1.0f);
             
             if (_isRiding) {
                 JoustUpdate();
@@ -133,22 +131,22 @@ namespace Marginagility {
 
             if (_hasLance) {
                 if (_lane == _lanceLane) {
-                    _lanceTargetTransform.localPosition = new Vector3(2.25f, 0.5f, 1.0f);
+                    _lanceTargetTransform.localPosition = new Vector3(2.25f * _direction, 0.5f, 1.0f);
                     _lanceTargetTransform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
-                    _lanceHitboxTransform.localPosition = new Vector3(2.5f, 0.0f, 0.0f);
+                    _lanceHitboxTransform.localPosition = new Vector3(2.5f * _direction, 0.0f, 0.0f);
                     _lanceHitboxTransform.localScale = new Vector3(3.0f, 1.0f, 1.0f);
                 } else if (_lane > _lanceLane) {
-                    _lanceTargetTransform.localPosition = new Vector3(1.6f, -1.1f, 1.0f);
-                    _lanceTargetTransform.localRotation = Quaternion.Euler(new Vector3(0, 0, -45.0f));
+                    _lanceTargetTransform.localPosition = new Vector3(1.6f * _direction, -1.1f, 1.0f);
+                    _lanceTargetTransform.localRotation = Quaternion.Euler(new Vector3(0, 0, -45.0f * _direction));
 
-                    _lanceHitboxTransform.localPosition = new Vector3(3.0f, -3.0f, 0.0f);
+                    _lanceHitboxTransform.localPosition = new Vector3(3.0f * _direction, -3.0f, 0.0f);
                     _lanceHitboxTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 } else if (_lane < _lanceLane) {
-                    _lanceTargetTransform.localPosition = new Vector3(1.6f, 1.9f, 1.0f);
-                    _lanceTargetTransform.localRotation = Quaternion.Euler(new Vector3(0, 0, 45.0f));
+                    _lanceTargetTransform.localPosition = new Vector3(1.6f * _direction, 1.9f, 1.0f);
+                    _lanceTargetTransform.localRotation = Quaternion.Euler(new Vector3(0, 0, 45.0f * _direction));
 
-                    _lanceHitboxTransform.localPosition = new Vector3(3.0f, 3.0f, 0.0f);
+                    _lanceHitboxTransform.localPosition = new Vector3(3.0f * _direction, 3.0f, 0.0f);
                     _lanceHitboxTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 }
             }
@@ -190,12 +188,12 @@ namespace Marginagility {
             switch (playerIndex)
             {
                 case 0:
-                    _arrowSpriteTransform.localPosition = new Vector3(-0.5f * _direction, 0.0f, 0.0f);
-                    _arrowSpriteTransform.localScale = new Vector3(1.0f * _direction, 1.0f, 1.0f);
+                    _arrowSpriteTransform.localPosition = new Vector3(-0.5f, 0.0f, 0.0f);
+                    _arrowSpriteTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     break;
                 case 1:
-                    _arrowSpriteTransform.localPosition = new Vector3(0.5f * _direction, 0.0f, 0.0f);
-                    _arrowSpriteTransform.localScale = new Vector3(-1.0f * _direction, 1.0f, 1.0f);
+                    _arrowSpriteTransform.localPosition = new Vector3(0.5f, 0.0f, 0.0f);
+                    _arrowSpriteTransform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
                     break;
                 case 2:
                     _arrowSpriteTransform.localPosition = new Vector3(0.0f, 0.5f, 0.0f);
@@ -248,6 +246,9 @@ namespace Marginagility {
             _rabbitSprite.enabled = true;
             _lanceSprite.enabled = true;
 
+            _lanceTargetTransform.localPosition = new Vector3(2.25f * _direction, 0.5f, 1.0f);
+            _lanceTargetTransform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
             _targetRabbitPos = _rabbitTargetTransform.position;
             _targetFrogPos = _frogTargetTransform.position;
             _targetLancePos = _lanceTargetTransform.position;
@@ -263,6 +264,10 @@ namespace Marginagility {
             _lastLanceRotation = _lanceTransform.rotation.eulerAngles;
             if (_lastLanceRotation.z > 180) _lastLanceRotation.z -= 360;
             _lastFrogPos = _frogTransform.position;
+
+            _rabbitSpriteTransform.localScale = new Vector3(_direction, 1.0f, 1.0f);
+            _lanceSpriteTransform.localScale = new Vector3(_direction, 1.0f, 1.0f);
+            _frogSpriteTransform.localScale = new Vector3(_direction, 1.0f, 1.0f);
 
             _arrowSprite.enabled = false;
 
