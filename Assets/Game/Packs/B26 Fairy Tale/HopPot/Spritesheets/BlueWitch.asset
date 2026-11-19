@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509d8c954f78add4fa0119259a2fe0cd, type: 3}
+  m_Name: BlueWitch
+  m_EditorClassIdentifier: Assembly-CSharp::WitchSpritesheet
+  idle: {fileID: -6788816512701156027, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  walk:
+  - {fileID: 1580395572, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  - {fileID: 1647240513, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  backWalk:
+  - {fileID: 1715091739, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  - {fileID: -2022121014, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  grabIdle: {fileID: 1760545801, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  grabWalk:
+  - {fileID: -1895430154, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  - {fileID: 1767478970, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  grabBackWalk:
+  - {fileID: 1515038160, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}
+  - {fileID: 1313892883, guid: 7b77d534fe841433fbf5342ed2d87515, type: 3}

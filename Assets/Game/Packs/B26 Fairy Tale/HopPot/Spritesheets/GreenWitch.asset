@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509d8c954f78add4fa0119259a2fe0cd, type: 3}
+  m_Name: GreenWitch
+  m_EditorClassIdentifier: Assembly-CSharp::WitchSpritesheet
+  idle: {fileID: 6638962678874668722, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  walk:
+  - {fileID: -959308363, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  - {fileID: -1590678152, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  backWalk:
+  - {fileID: 28456654, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  - {fileID: 1295996947, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  grabIdle: {fileID: -1335742311, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  grabWalk:
+  - {fileID: -662436799, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  - {fileID: -405968117, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  grabBackWalk:
+  - {fileID: 577829296, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}
+  - {fileID: 1644238905, guid: c4bd02eb30a4e45e08cc2c70b31551d9, type: 3}

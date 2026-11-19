@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65074faa8a836848ae4203c738fad3b, type: 3}
+  m_Name: UnGnome
+  m_EditorClassIdentifier: 
+  minigameName: Fear of the Un-Gnome
+  thumbnail: {fileID: 21300000, guid: 022ec89acd797a04dbd9e1fb53e14aa1, type: 3}
+  scene:
+    m_SceneAsset: {fileID: 102900000, guid: f063c8c7f1af1ca4a8becc7195086551, type: 3}
+    m_SceneName: UnGnome
+  minimumPlayers: 2
+  description: 'Gnomes: Move and jump to survive the evil pool cleaner robot until the time runs out
+
+    Robot: Blast as many gnomes as you can with a jet of water'
+  controls: '<sprite name="XBOX_LEFT_STICK"> - Move
+
+    <sprite name="XBOX_A">/<sprite name="XBOX_B"> - Jump/Shoot'
+  credits: John Ristuccia, James Prendergast, Evan Ricket, Alex Bavey
+  attributions: 

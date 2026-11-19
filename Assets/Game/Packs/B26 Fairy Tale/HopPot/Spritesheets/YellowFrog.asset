@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa9b0257e10df242a741e383757778c, type: 3}
+  m_Name: YellowFrog
+  m_EditorClassIdentifier: Assembly-CSharp::FrogSprites
+  idle: {fileID: -6800119643774192898, guid: 843d0b3435a1e4d0e9a692dc1f67f823, type: 3}
+  jump: {fileID: 738798783, guid: 843d0b3435a1e4d0e9a692dc1f67f823, type: 3}
+  back: {fileID: 524302593, guid: 843d0b3435a1e4d0e9a692dc1f67f823, type: 3}
+  captured:
+  - {fileID: 1226510629763995724, guid: d1ac8a94758984c928acd79608f351b4, type: 3}
+  - {fileID: 358063710, guid: d1ac8a94758984c928acd79608f351b4, type: 3}
+  - {fileID: -976139010, guid: d1ac8a94758984c928acd79608f351b4, type: 3}
+  - {fileID: 865535082, guid: d1ac8a94758984c928acd79608f351b4, type: 3}

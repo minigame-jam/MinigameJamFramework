@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: FairyTalePack
   m_EditorClassIdentifier: 
   packName: Fairy Tale
-  icon: {fileID: 21300000, guid: af64e54840e36e74e929338ba15902a8, type: 3}
+  icon: {fileID: 7418210340161726709, guid: 3a040fd35b78c40f6b82933f66676097, type: 3}
   packColor: {r: 0.4481132, g: 1, b: 0.6885489, a: 1}
   packSound: {fileID: 8300000, guid: 9a38e92c65e96874eb09abb88fe16c75, type: 3}
   description: Created for the B Term 2026 Minigame Jam.
-  minigames: []
+  minigames:
+  - {fileID: 11400000, guid: 9eb9e0559b26c5d40923e14f6db010e2, type: 2}
+  - {fileID: 11400000, guid: 54a378f53497cd1479c3e1f74570ee7b, type: 2}
+  - {fileID: 11400000, guid: e8ac4c685dc72b548918040eeb63921d, type: 2}
+  - {fileID: 11400000, guid: bf48a6d6a6e493a48a4e4aabc8c01baf, type: 2}
+  - {fileID: 11400000, guid: e825365a32eced04ea2c9197f7b5b93f, type: 2}
