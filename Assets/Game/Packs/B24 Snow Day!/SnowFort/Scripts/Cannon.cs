@@ -27,7 +27,7 @@ namespace SnowDay.Snowfort
 
         public TextMeshPro clipCounter;
 
-        int ammoCount = 3;
+        int ammoCount = 6;
         bool active;
 
         bool rightTeam;
