@@ -261,7 +261,7 @@ namespace HopPot {
         public void CookFrog() {
             transform.GetComponentInChildren<FrogMovement>().Die();
             hasFrog = false;
-            scoreTracker.addScore(playerNum,4);
+            scoreTracker.addScore(playerNum,3);
             frogsCaught += 1;
             if (frogsCaught >= PlayerManager.GetNumPlayers() - 1) {
                 gm.timer = 60;
