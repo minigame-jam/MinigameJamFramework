@@ -12,7 +12,7 @@ namespace SnowDay.Snowfort
 
         void Start()
         {
-            GetComponent<SpriteRenderer>().color = healthColors[3];
+            GetComponent<SpriteRenderer>().color = healthColors[healthColors.Length-1];
 
             GetComponent<Breakable>().onDamage += (h) =>
             { 
