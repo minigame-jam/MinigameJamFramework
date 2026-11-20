@@ -23,6 +23,9 @@ public class PlayerIndicator : MonoBehaviour {
     }
     [SerializeField] List<Color> colors = new() { };
 
+    [Tooltip("Rotates text to always face camera when in 3D")]
+    [SerializeField] bool enableBillboard = false;
+
     void Awake() {
         text = GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -34,4 +37,16 @@ public class PlayerIndicator : MonoBehaviour {
             else pawn.onPlayerIndexChanged.AddListener((value) => {_PlayerIndex = value;});
         }
     }
+
+    #region Billboard
+    void OnEnable() {
+        if (enableBillboard) Camera.onPreRender += HandlePreRender;
+    }
+    void OnDisable() {
+        if (enableBillboard) Camera.onPreRender -= HandlePreRender;
+    }
+    private void HandlePreRender(Camera camera) {
+        transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+    }
+    #endregion
 }
