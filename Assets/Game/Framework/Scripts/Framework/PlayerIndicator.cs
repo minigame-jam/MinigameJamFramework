@@ -40,12 +40,12 @@ public class PlayerIndicator : MonoBehaviour {
 
     #region Billboard
     void OnEnable() {
-        if (enableBillboard) Camera.onPreRender += HandlePreRender;
+        if (enableBillboard) Camera.onPreCull += HandlePreCull;
     }
     void OnDisable() {
-        if (enableBillboard) Camera.onPreRender -= HandlePreRender;
+        if (enableBillboard) Camera.onPreCull -= HandlePreCull;
     }
-    private void HandlePreRender(Camera camera) {
+    private void HandlePreCull(Camera camera) {
         transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
     }
     #endregion
